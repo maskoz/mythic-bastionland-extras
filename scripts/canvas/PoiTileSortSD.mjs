@@ -1,5 +1,5 @@
-
-const MODULE_ID = "shadowdark-extras";
+﻿
+const MODULE_ID = "mythicbastionland-extras";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -8,7 +8,7 @@ export class PoiTileSortApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static DEFAULT_OPTIONS = {
 		id: "sdx-poi-tile-sort",
-		classes: ["shadowdark", "shadowdark-extras", "poi-tile-sort-app"],
+		classes: ["shadowdark", "mythicbastionland-extras", "poi-tile-sort-app"],
 		window: {
 			title: "POI Tile Sort",
 			resizable: true,

@@ -1,11 +1,11 @@
-/**
+﻿/**
  * SDX Dungeondraft pack manager.
  *
  * Dungeondraft packs are Godot PCK files (GDPC magic). SDX extracts object
  * textures into Data/decor/ddpacks so they appear in the Decor painter only.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const SETTING_KEY = "decorDungeondraftPacks";
 export const DD_DECOR_BASE = "decor/ddpacks";
 

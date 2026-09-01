@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Identify Spell Macro
  *
  * This module contains the Identify spell implementation for Shadowdark Extras.
  * The Identify spell allows players to reveal the true nature of unidentified items.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * Canonical identification helpers live in shared/sd4Compat.mjs (Phase 5.2.9,

@@ -1,28 +1,29 @@
 {
-  "id": "shadowdark-extras",
-  "title": "Shadowdark Extras",
+  "id": "mythicbastionland-extras",
+  "title": "Mythic Bastionland Extras",
   "version": "6.13.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
   },
-  "url": "https://github.com/DimitroffVodka/shadowdark-extras/wiki",
-  "description": "<p>Adds extra features to the Shadowdark RPG system: Party management sheet, Renown tracking for players, additional light sources (Candle), and Inventory tab for NPCs.</p>",
+  "url": "https://github.com/maskoz/shadowdark-extras",
+  "description": "<p>Map-making tools for Mythic Bastionland: hex map painter, dungeon generator, tile selection, journal pins, drawing tools, and scene import/export. Forked from Shadowdark Extras by DmKal.</p>",
   "authors": [
     {
       "name": "DmKal",
+      "flags": {}
+    },
+    {
+      "name": "maskoz (MB port)",
       "flags": {}
     }
   ],
   "relationships": {
     "systems": [
       {
-        "id": "shadowdark",
+        "id": "mythicbastionland",
         "type": "system",
-        "compatibility": {
-          "minimum": "3.0.0",
-          "verified": "4.0.6"
-        }
+        "compatibility": {}
       }
     ],
     "requires": [
@@ -53,19 +54,6 @@
           "minimum": "0.7.5.1"
         }
       }
-    ],
-    "recommends": [
-      {
-        "id": "JB2A_DnD5e",
-        "type": "module",
-        "compatibility": {}
-      },
-      {
-        "id": "psfx",
-        "type": "module",
-        "compatibility": {},
-        "reason": "Optional. Supplies the sound effects for the bundled weapon and spell animation presets (files under modules/psfx/library/...). Animations play without it; presets that reference a psfx sound simply fire silently if it is not installed."
-      }
     ]
   },
   "socket": true,
@@ -77,8 +65,6 @@
   ],
   "esmodules": [
     "scripts/shadowdark-extras.mjs",
-    "scripts/character-sheet/SheetEditorConfig.mjs",
-    "scripts/item-macros/SpellMacrosSD.mjs",
     "scripts/canvas/TileFlattenSD.mjs"
   ],
   "styles": [
@@ -98,18 +84,6 @@
       "src": "styles/dark-mode.css"
     },
     {
-      "src": "styles/potion-sheet.css"
-    },
-    {
-      "src": "styles/background-sheet.css"
-    },
-    {
-      "src": "styles/npc-attack-sheet.css"
-    },
-    {
-      "src": "styles/staff-spell-manager.css"
-    },
-    {
       "src": "styles/formation-spawner.css"
     },
     {
@@ -122,9 +96,6 @@
       "src": "styles/icon-picker.css"
     },
     {
-      "src": "styles/sheet-locking.css"
-    },
-    {
       "src": "styles/sdx-tray.css"
     },
     {
@@ -135,12 +106,6 @@
     },
     {
       "src": "styles/scene-nav-bar.css"
-    },
-    {
-      "src": "styles/light-tracker.css"
-    },
-    {
-      "src": "styles/mysterious-casting.css"
     },
     {
       "src": "styles/sdx-drawing.css"
@@ -166,66 +131,7 @@
       "flags": {}
     }
   ],
-  "manifest": "https://github.com/DimitroffVodka/shadowdark-extras/releases/latest/download/module.json",
-  "download": "https://github.com/DimitroffVodka/shadowdark-extras/releases/latest/download/module.zip",
-  "packFolders": [
-    {
-      "name": "Shadowdark Extras",
-      "sorting": "m",
-      "color": "#6f4e9c",
-      "packs": [
-        "pack-sdxitems",
-        "pack-sdxactors",
-        "pack-sdxrollables",
-        "pack-sdxeffects"
-      ]
-    }
-  ],
-  "packs": [
-    {
-      "name": "pack-sdxitems",
-      "label": "sdxitems",
-      "path": "packs/pack-sdxitems",
-      "type": "Item",
-      "system": "shadowdark",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "pack-sdxactors",
-      "label": "sdxactors",
-      "path": "packs/pack-sdxactors",
-      "type": "Actor",
-      "system": "shadowdark",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "pack-sdxrollables",
-      "label": "sdxrollables",
-      "path": "packs/pack-sdxrollables",
-      "type": "RollTable",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      },
-      "system": "shadowdark"
-    },
-    {
-      "name": "pack-sdxeffects",
-      "label": "SDX Effects Library",
-      "path": "packs/pack-sdxeffects",
-      "type": "ActiveEffect",
-      "system": "shadowdark",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    }
-  ],
+  "manifest": "https://github.com/maskoz/shadowdark-extras/releases/latest/download/module.json",
+  "download": "https://github.com/maskoz/shadowdark-extras/releases/latest/download/module.zip",
   "flags": {}
 }

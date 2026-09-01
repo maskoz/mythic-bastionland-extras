@@ -1,4 +1,4 @@
-// Tray bindings for the placeable-note list.
+﻿// Tray bindings for the placeable-note list.
 //
 // Split out of pin-list-bindings.mjs, which owned these handlers only by
 // accident of history: a note is a flag on a Token, Actor, Tile, Drawing, Wall,
@@ -13,7 +13,7 @@ import { isEligibleNoteSource, isNoteSharedWithPlayers } from "../journal/placea
 import { PlaceableNotesSD } from "../journal/PlaceableNotesSD.mjs";
 import { renderTray } from "./TraySD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * The row commands that manage a note rather than merely look at one. Rendering

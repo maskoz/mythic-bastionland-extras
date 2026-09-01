@@ -1,4 +1,4 @@
-import { cache } from "../shared/SDXCache.mjs";
+﻿import { cache } from "../shared/SDXCache.mjs";
 import { readShippedManifest, writeShippedManifest } from "../shared/shipped-asset-cache.mjs";
 import { getDoorTiles } from "../dungeon/DungeonPainterSD.mjs";
 import { FEATURE_IDS, isFeatureEnabled } from "../settings/feature-gates.mjs";
@@ -258,7 +258,7 @@ export {
 	enablePainting, disablePainting, bindCanvasEvents, isPainting, setGenerating,
 };
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const TILE_FOLDER = `modules/${MODULE_ID}/assets/tiles`;
 const COLORED_HEX_TILE_W = 572;
 const COLORED_HEX_TILE_H = 500;

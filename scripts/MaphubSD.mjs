@@ -1,4 +1,4 @@
-/**
+﻿/**
  * MaphubSD.mjs
  * Watches for sdx-maphub-map placeholder divs via MutationObserver and
  * replaces them with inline iframes pointing to the locally-served maphub
@@ -7,7 +7,7 @@
  * if the local files are not present.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const LOCAL_MAPHUB_BASE = `modules/${MODULE_ID}/scripts/maphub`;
 
 // Guards against processing the same placeholder twice

@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Holy Weapon Spell Macro
  *
  * This module contains the Holy Weapon spell implementation for Shadowdark Extras.
  * The Holy Weapon spell blesses a weapon with holy power, granting +1 to attack and damage rolls.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // Import helper functions from identify.mjs
 import { isUnidentified, getUnidentifiedName } from "./identify.mjs";

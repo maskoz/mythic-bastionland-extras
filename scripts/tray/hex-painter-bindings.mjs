@@ -1,4 +1,4 @@
-// Hex-painter event bindings — extracted from scripts/tray/TrayApp.mjs
+﻿// Hex-painter event bindings — extracted from scripts/tray/TrayApp.mjs
 // (Phase 5.1 split). Prototype mixin: the _bindHexPainterEvents method
 // wiring the tray's hex-painter controls to HexPainterSD. Merged via
 // Object.assign(TrayApp.prototype, HexPainterBindings).
@@ -9,7 +9,7 @@ import { generateHexMap, clearGeneratedTiles } from "../hex/HexGeneratorSD.mjs";
 import { renderTray } from "./TraySD.mjs";
 import { DecorImportApp } from "./decor-import.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 export const HexPainterBindings = {
 	_bindHexPainterEvents(elem) {

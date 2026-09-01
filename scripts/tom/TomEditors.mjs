@@ -1,4 +1,4 @@
-// v13+ FilePicker namespaced under foundry.applications.apps.
+﻿// v13+ FilePicker namespaced under foundry.applications.apps.
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
 import { TOM_CONFIG as CONFIG } from "./TomConfig.mjs";
@@ -79,7 +79,7 @@ export class TomSceneEditor extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static PARTS = {
 		main: {
-			template: "modules/shadowdark-extras/templates/tom-scene-editor.hbs",
+			template: "modules/mythicbastionland-extras/templates/tom-scene-editor.hbs",
 			scrollable: [".tom-editor-content"],
 		},
 	};

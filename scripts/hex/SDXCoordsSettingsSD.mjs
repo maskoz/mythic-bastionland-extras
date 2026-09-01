@@ -1,8 +1,8 @@
-/**
+﻿/**
  * SDX Coords Settings — AppV2 dialog for coordinate overlay configuration
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 const SDX_FONTS = [

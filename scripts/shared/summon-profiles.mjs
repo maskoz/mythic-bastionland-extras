@@ -1,4 +1,4 @@
-// Reading the configured summon profiles, whatever shape they were stored in.
+﻿// Reading the configured summon profiles, whatever shape they were stored in.
 //
 // The item-sheet config persists them as a JSON string — a hidden input holding
 // `JSON.stringify(profiles)`. Every consumer then guarded with
@@ -37,7 +37,7 @@ export function readSummonProfiles(config) {
 		}
 		catch(err) {
 			// A corrupt string is not a reason to throw out of a chat-card render.
-			console.warn("shadowdark-extras | Could not parse summon profiles:", err);
+			console.warn("mythicbastionland-extras | Could not parse summon profiles:", err);
 			return [];
 		}
 	}

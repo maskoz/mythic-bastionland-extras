@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Journal Pins System for Shadowdark Extras
  * Allows placing journal/page pins on the canvas via Ctrl+drag
  */
@@ -97,7 +97,7 @@ function initJournalPins() {
 
 	// Register Socket Listener for "Bring Players Here"
 	Hooks.once("ready", () => {
-		game.socket.on("module.shadowdark-extras", data => {
+		game.socket.on("module.mythicbastionland-extras", data => {
 			if (data.type === "panToPin") {
 				// Check scene match
 				if (canvas.scene?.id !== data.sceneId) return;

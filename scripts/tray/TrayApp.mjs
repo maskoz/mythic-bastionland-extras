@@ -1,4 +1,4 @@
-import {
+﻿import {
 	getViewMode,
 	selectPartyTokens,
 	clearTokenSelection,
@@ -51,7 +51,7 @@ export class TrayApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static PARTS = {
 		main: {
-			template: "modules/shadowdark-extras/templates/sdx-tray/tray.hbs",
+			template: "modules/mythicbastionland-extras/templates/sdx-tray/tray.hbs",
 		},
 	};
 

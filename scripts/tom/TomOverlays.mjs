@@ -1,5 +1,5 @@
-/** Single source for Theatre of the Mind video overlays. */
-export const TOM_OVERLAY_BASE = "modules/shadowdark-extras/assets/Tom/overlays/";
+﻿/** Single source for Theatre of the Mind video overlays. */
+export const TOM_OVERLAY_BASE = "modules/mythicbastionland-extras/assets/Tom/overlays/";
 
 export const TOM_OVERLAYS = [
 	{ name: "Fire", file: "fire.webm" },

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Scene-scoped index model for SDX placeable notes.
  *
  * This is an internal leaf: it imports nothing from the journal cluster so the
@@ -7,7 +7,7 @@
  * manifest entry may expose it.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * The document types that can carry an SDX note, and the only types the index

@@ -1,4 +1,4 @@
-// BiomeEditorSD.mjs
+﻿// BiomeEditorSD.mjs
 //
 // Ticket 5, slice 2: an ApplicationV2 editor for dungeon biomes. Lists the
 // built-in biomes alongside any user-defined ones, lets the GM add / edit /
@@ -17,7 +17,7 @@ import {
 	setBiomeEnabled,
 } from "./DungeonBiomesSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 const FilePickerImpl = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
@@ -50,7 +50,7 @@ export class BiomeEditorSD extends HandlebarsApplicationMixin(ApplicationV2) {
 	static DEFAULT_OPTIONS = {
 		id: "sdx-biome-editor",
 		tag: "div",
-		classes: ["shadowdark-extras", "sdx-biome-editor-app"],
+		classes: ["mythicbastionland-extras", "sdx-biome-editor-app"],
 		window: { title: "Dungeon Biome Editor", icon: "fa-solid fa-mountain-sun", resizable: true },
 		position: { width: 560, height: 720 },
 		actions: {

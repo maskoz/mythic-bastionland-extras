@@ -1,7 +1,7 @@
-
+﻿
 import { isEligibleNoteSource } from "./placeable-note-index.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // Shared by both header-control hooks so the V2 ⋮ entry and the V1 actor-sheet
 // button name the control identically, in the user's language.
@@ -67,7 +67,7 @@ export default class PlaceableNotesSD extends foundry.applications.api.Handlebar
 
 	static async _onSave(event, target) {
 		// The editor field is named with the full flag path
-		// (`flags.shadowdark-extras.notes`), so read it from the expanded form
+		// (`flags.mythicbastionland-extras.notes`), so read it from the expanded form
 		// data rather than a top-level `notes` key (which is always undefined).
 		const formData = new foundry.applications.ux.FormDataExtended(this.element).object;
 		const expanded = foundry.utils.expandObject(formData);

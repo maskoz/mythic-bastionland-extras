@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Hex Map Procedural Generator
  *
  * Generates a hex map by combining two Simplex Noise layers (elevation + vegetation)
@@ -11,7 +11,7 @@
 import { setGenerating, isWaterEffect, isBwEffect, getCustomTilesByBiome, getCustomTileDimensions, getCustomTilePlacement, getColoredTilesByBiome, getColoredTileDimensions, isTintEnabled, getActiveTileTab } from "./HexPainterSD.mjs";
 import { setHexTerrainBatch } from "./HexTooltipSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const TILE_FOLDER = `modules/${MODULE_ID}/assets/tiles`;
 
 // Maps biome keys to user-friendly terrain labels (same mapping as HexPainterSD)

@@ -1,9 +1,9 @@
-/**
+﻿/**
  * SDX Caching Utility
  * Handles persistent storage of metadata and binary assets using IndexedDB
  */
 
-const DB_NAME = "shadowdark-extras-cache";
+const DB_NAME = "mythicbastionland-extras-cache";
 const DB_VERSION = 1;
 const STORE_METADATA = "metadata";
 const STORE_BINARY = "binary";

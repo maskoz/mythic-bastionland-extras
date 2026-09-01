@@ -1,6 +1,6 @@
+﻿
 
-
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * Initialize the Easy Reference Menu

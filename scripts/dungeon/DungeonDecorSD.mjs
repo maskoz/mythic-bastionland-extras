@@ -1,4 +1,4 @@
-const MODULE_ID = "shadowdark-extras";
+﻿const MODULE_ID = "mythicbastionland-extras";
 const DEFAULT_GRID_SIZE = 100;
 const SCONCE_TILE = `modules/${MODULE_ID}/assets/Dungeon/decor/wall-sconce.svg`;
 

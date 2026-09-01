@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Application for displaying a list of journal pins on the current scene
  */
 import { JournalPinManager, normalizeImageTint } from "./JournalPinsSD.mjs";
@@ -7,7 +7,7 @@ import { JournalPinManager, normalizeImageTint } from "./JournalPinsSD.mjs";
 import { checkPinVisibility } from "./pin-manager.mjs";
 import { getPinJournalSubtitle, openPinTarget } from "./pin-access.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -16,7 +16,7 @@ export class PinListApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static DEFAULT_OPTIONS = {
 		id: "sdx-pin-list",
-		classes: ["shadowdark", "shadowdark-extras", "pin-list-app"],
+		classes: ["shadowdark", "mythicbastionland-extras", "pin-list-app"],
 		window: {
 			title: "SHADOWDARK_EXTRAS.pinList.title",
 			resizable: true,

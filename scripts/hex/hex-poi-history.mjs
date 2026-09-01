@@ -1,4 +1,4 @@
-// POI placement undo/redo history for the hex tools — the leaf that the rest
+﻿// POI placement undo/redo history for the hex tools — the leaf that the rest
 // of the HexPainterSD.mjs split can import without a cycle.
 // Extracted verbatim from scripts/hex/HexPainterSD.mjs (Phase 5.3 sweep 6
 // split).
@@ -13,7 +13,7 @@
 // and four decor bindings that are still in the painter. It moves once those
 // have their own leaves.
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // State
 export let _poiUndoStack = [];          // Stack of placed POI tile IDs and data

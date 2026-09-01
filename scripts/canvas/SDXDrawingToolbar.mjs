@@ -1,11 +1,11 @@
-/**
+﻿/**
  * SDX Drawing Toolbar
  * Frameless, draggable, vertical, semi-transparent floating toolbar for the SDX drawing tools.
  */
 
 import { sdxDrawingTool, COLORS } from "./SDXDrawingTool.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // ── Button definitions ──────────────────────────────────────────
 const DRAWING_MODES = [

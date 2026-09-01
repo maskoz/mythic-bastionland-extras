@@ -1,11 +1,11 @@
-// v13+ FilePicker namespaced under foundry.applications.apps.
+﻿// v13+ FilePicker namespaced under foundry.applications.apps.
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
 /**
  * SceneImporter: Imports a Foundry VTT scene from a ZIP file exported by SceneExporter
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 export class SceneImporter {
 

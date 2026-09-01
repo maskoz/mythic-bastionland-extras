@@ -1,4 +1,4 @@
-// Pin style form reading and saving — extracted from
+﻿// Pin style form reading and saving — extracted from
 // scripts/journal/PinStyleEditorSD.mjs (Phase 5.3 split). Prototype mixin:
 // _getFormData, the fifty-field table of selectors, coercions and defaults that
 // turns the dialog back into a style, and _onSave, which writes it to a single
@@ -13,7 +13,7 @@ import {
 	JournalPinManager, JournalPinRenderer, getPinStyle, isMediaPinShape,
 } from "./JournalPinsSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * Read a number that may be missing, blank or unparseable.

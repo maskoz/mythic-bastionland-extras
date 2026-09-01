@@ -1,4 +1,4 @@
-// DungeonCaveSD.mjs
+﻿// DungeonCaveSD.mjs
 //
 // Organic "cave" generation style for the dungeon generator, plus the curved-
 // wall geometry pipeline. Produces the SAME layout shape as
@@ -13,7 +13,7 @@
 // NOTE: the cave shape uses a self-contained cellular-automata generator rather
 // than vendoring rot.js — same algorithm, no extra dependency.
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const GRID_SIZE = 100;
 
 // ═══════════════════════════════════════════════════════

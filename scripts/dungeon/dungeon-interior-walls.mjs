@@ -1,4 +1,4 @@
-// Interior-wall painting for the dungeon tools — lifted out of
+﻿// Interior-wall painting for the dungeon tools — lifted out of
 // DungeonPainterSD.mjs (Phase 5.3 sweep 6 split).
 //
 // Imports nothing from the painter by design: read-only ESM bindings forbid
@@ -24,7 +24,7 @@ import {
 } from "./dungeon-level-context.mjs";
 import { _doorTiles } from "./dungeon-tile-catalog.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const WALL_THICKNESS = 20;
 const GRID_SIZE = 100;
 

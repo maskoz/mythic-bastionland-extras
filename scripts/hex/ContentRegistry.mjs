@@ -1,11 +1,11 @@
-/**
+﻿/**
  * ContentRegistry — tracks all procedurally generated content (dungeons, settlements, wilderness)
  * so that settlement quest generation can reference real, existing locations.
  *
- * Storage: Foundry world-level setting "shadowdark-extras.contentRegistry"
+ * Storage: Foundry world-level setting "mythicbastionland-extras.contentRegistry"
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const SETTING_KEY = "contentRegistry";
 
 // ── Initialization ──────────────────────────────────────────────────────────

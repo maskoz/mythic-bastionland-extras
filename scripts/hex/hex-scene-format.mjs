@@ -1,4 +1,4 @@
-// The requested hex-map dimensions and the scene reformat that applies them —
+﻿// The requested hex-map dimensions and the scene reformat that applies them —
 // the one place that decides how many pixels an N×M columnar-hex scene needs.
 // Extracted verbatim from scripts/hex/HexPainterSD.mjs (Phase 5.3 sweep 6
 // split).
@@ -9,7 +9,7 @@
 // MODULE_ID and HEX_TILE_H are duplicated rather than imported for the same
 // reason — the painter still reads both.
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const HEX_TILE_H = 256;
 
 // State

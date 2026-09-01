@@ -1,4 +1,4 @@
-// Level-context adapter for the dungeon tools — the seam over Foundry's
+﻿// Level-context adapter for the dungeon tools — the seam over Foundry's
 // scene/levels elevation model. Extracted verbatim from
 // scripts/dungeon/DungeonPainterSD.mjs (Phase 5.3 sweep 6 split): reads which
 // level the canvas is on (native v14 scene.levels, or the third-party Levels
@@ -8,7 +8,7 @@
 // Imports nothing by design: MODULE_ID and LEVEL_HEIGHT are duplicated here so
 // DungeonPainterSD.mjs can import this module without a circular dependency.
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const LEVEL_HEIGHT = 10;
 
 export function makeTopLeftTileTexture(src) {

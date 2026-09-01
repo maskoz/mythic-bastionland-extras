@@ -1,4 +1,4 @@
-// HexDungeonBridgeSD.mjs
+﻿// HexDungeonBridgeSD.mjs
 //
 // Bridges the Hexplorer "Generate Dungeon" flow to a PLAYABLE map scene with
 // room-for-room correspondence.
@@ -16,7 +16,7 @@ import { generateDungeon } from "../dungeon/DungeonGeneratorSD.mjs";
 import { generateDungeonRooms, getDungeonSizes } from "../dungeon/DungeonGenerator.mjs";
 import { JournalPinManager } from "../journal/JournalPinsSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * Compass direction from room A's centre toward room B's centre.

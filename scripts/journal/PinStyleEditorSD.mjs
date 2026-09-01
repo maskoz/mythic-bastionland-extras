@@ -1,7 +1,7 @@
-// v13+ FilePicker namespaced under foundry.applications.apps.
+﻿// v13+ FilePicker namespaced under foundry.applications.apps.
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * We import style logic from JournalPinsSD to avoid circular dependencies
@@ -483,7 +483,7 @@ export class PinStyleEditorApp extends HandlebarsApplicationMixin(ApplicationV2)
 
 				let browsePath = currentInput ? currentInput.value : "";
 				if (!browsePath && targetName === "labelBorderImagePath") {
-					browsePath = "modules/shadowdark-extras/assets/labelframes/";
+					browsePath = "modules/mythicbastionland-extras/assets/labelframes/";
 				}
 
 				new FilePicker({

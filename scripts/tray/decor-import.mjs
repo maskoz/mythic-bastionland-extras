@@ -1,10 +1,10 @@
-// Decor-import unit — extracted from scripts/tray/TrayApp.mjs (Phase 5.1 split).
+﻿// Decor-import unit — extracted from scripts/tray/TrayApp.mjs (Phase 5.1 split).
 // The decor asset import dialog (DecorImportApp) + its path helpers.
 
 import { reloadDecorAssets, registerDecorAsset } from "../hex/HexPainterSD.mjs";
 
 const { ApplicationV2 } = foundry.applications.api;
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const DECOR_IMPORT_DESTINATION = "decor";
 const DECOR_IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"];
 

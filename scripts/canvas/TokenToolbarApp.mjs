@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Token Toolbar Application
  *
  * V2 Application for displaying the token toolbar HUD.
@@ -26,7 +26,7 @@ async function useNpcActivityItem(actor, item) {
 			await shadowdark.chat.showItemCard(item.uuid);
 		}
 		catch(err) {
-			console.error("shadowdark-extras: showItemCard failed", err);
+			console.error("mythicbastionland-extras: showItemCard failed", err);
 			return false;
 		}
 		return true;
@@ -51,7 +51,7 @@ export class TokenToolbarApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static PARTS = {
 		main: {
-			template: "modules/shadowdark-extras/templates/token-toolbar.hbs",
+			template: "modules/mythicbastionland-extras/templates/token-toolbar.hbs",
 		},
 	};
 
@@ -176,7 +176,7 @@ export class TokenToolbarApp extends HandlebarsApplicationMixin(ApplicationV2) {
 			localStorage.setItem(POSITION_KEY, JSON.stringify({ x, y }));
 		}
 		catch(e) {
-			console.warn("shadowdark-extras | Failed to save toolbar position:", e);
+			console.warn("mythicbastionland-extras | Failed to save toolbar position:", e);
 		}
 	}
 
@@ -190,7 +190,7 @@ export class TokenToolbarApp extends HandlebarsApplicationMixin(ApplicationV2) {
 			return saved ? JSON.parse(saved) : null;
 		}
 		catch(e) {
-			console.warn("shadowdark-extras | Failed to load toolbar position:", e);
+			console.warn("mythicbastionland-extras | Failed to load toolbar position:", e);
 			return null;
 		}
 	}
@@ -303,7 +303,7 @@ export class TokenToolbarApp extends HandlebarsApplicationMixin(ApplicationV2) {
 							await shadowdark.chat.showItemCard(item.uuid);
 						}
 						catch(err) {
-							console.error("shadowdark-extras: showItemCard failed", err);
+							console.error("mythicbastionland-extras: showItemCard failed", err);
 							item.sheet.render(true);
 						}
 						return;
@@ -337,7 +337,7 @@ export class TokenToolbarApp extends HandlebarsApplicationMixin(ApplicationV2) {
 							await shadowdark.chat.showItemCard(item.uuid);
 						}
 						catch(err) {
-							console.error("shadowdark-extras: showItemCard failed", err);
+							console.error("mythicbastionland-extras: showItemCard failed", err);
 							item.sheet.render(true);
 						}
 					}

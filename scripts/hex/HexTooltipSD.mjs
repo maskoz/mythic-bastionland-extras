@@ -1,4 +1,4 @@
-// v13+ FilePicker namespaced under foundry.applications.apps.
+﻿// v13+ FilePicker namespaced under foundry.applications.apps.
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
 
@@ -14,7 +14,7 @@ import { MaphubViewerApp } from "../MaphubViewerApp.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 export const HEX_JOURNAL_NAME = "__sdx_hex_data__";
 
 const EXPLORATION_OPTIONS = [
@@ -678,7 +678,7 @@ export class SDXHexTooltip {
 				else {
 					// Players always go through the GM — ensures journal is set to LIMITED
 					// and the specific page to OBSERVER before rendering
-					game.socket.emit("module.shadowdark-extras", {
+					game.socket.emit("module.mythicbastionland-extras", {
 						action: "sdxHexShowJournal",
 						userId: game.user.id,
 						journalId: j.id,
@@ -1498,14 +1498,14 @@ class HexEditApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static DEFAULT_OPTIONS = {
 		id: "sdx-hex-edit",
-		classes: ["shadowdark-extras", "sdx-hex-edit-app"],
+		classes: ["mythicbastionland-extras", "sdx-hex-edit-app"],
 		tag: "div",
 		window: { title: "Edit Hex", resizable: false },
 		position: { width: 420, height: "auto" },
 	};
 
 	static PARTS = {
-		main: { template: "modules/shadowdark-extras/templates/sdx-hex-tooltip/hex-edit.hbs" },
+		main: { template: "modules/mythicbastionland-extras/templates/sdx-hex-tooltip/hex-edit.hbs" },
 	};
 
 	get title() {
@@ -1820,7 +1820,7 @@ export function initHexTooltip() {
 
 	// Must wait for "ready" — game.socket is undefined before that hook fires
 	Hooks.once("ready", () => {
-		game.socket.on("module.shadowdark-extras", async data => {
+		game.socket.on("module.mythicbastionland-extras", async data => {
 
 			// GM side: player requests journal access without OBSERVER permission.
 			// Only the first active GM handles it to avoid duplicate updates.
@@ -1850,7 +1850,7 @@ export function initHexTooltip() {
 				await new Promise(resolve => setTimeout(resolve, 300));
 
 				// Tell only that player to render the journal at the specific page
-				game.socket.emit("module.shadowdark-extras", {
+				game.socket.emit("module.mythicbastionland-extras", {
 					action: "sdxHexRenderJournal",
 					targetUserId: userId,
 					journalId: j.id,

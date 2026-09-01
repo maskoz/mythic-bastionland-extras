@@ -1,17 +1,17 @@
-/**
+﻿/**
  * One-time migration for the PNG/JPG -> WebP asset conversion.
  *
  * Existing worlds persist absolute asset paths inside their own database:
  * scene tiles, token textures, note icons, journal page images, actor/item
  * art, module settings, and arbitrary module flags all store strings like
- * `modules/shadowdark-extras/assets/Hexes/Autumn/autumnbog.png`. Converting
+ * `modules/mythicbastionland-extras/assets/Hexes/Autumn/autumnbog.png`. Converting
  * the shipped files to .webp deletes those targets, so every stored path
  * would 404 and the artwork would silently vanish from the user's world.
  *
  * This migration rewrites those stored paths in place. It is deliberately
  * conservative:
  *
- *   - It only touches strings containing `modules/shadowdark-extras/`.
+ *   - It only touches strings containing `modules/mythicbastionland-extras/`.
  *   - It rewrites a path ONLY after confirming (via HEAD) that the .webp
  *     replacement actually exists. Assets we intentionally kept as PNG/JPG
  *     (tileable backgrounds, already-lossy portraits) therefore stay put.
@@ -72,7 +72,7 @@ export function toUrl(relPath) {
  *
  * Ownership must be a PREFIX test, not a substring test: a foreign path that
  * merely contains our prefix - a backup or upload such as
- * `worlds/mine/uploads/modules/shadowdark-extras/old.png` - is not ours, and
+ * `worlds/mine/uploads/modules/mythicbastionland-extras/old.png` - is not ours, and
  * rewriting it would point a working reference at a file that does not exist.
  *
  * Returns the leading-slash-stripped path, or null when the value is not a

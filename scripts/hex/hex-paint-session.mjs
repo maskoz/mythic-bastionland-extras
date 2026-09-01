@@ -1,4 +1,4 @@
-// Paint-session state and the canvas pointer handlers for the hex painter —
+﻿// Paint-session state and the canvas pointer handlers for the hex painter —
 // including _stampAtPointer, the placement routine they all drive.
 // Extracted verbatim from scripts/hex/HexPainterSD.mjs (Phase 5.3 sweep 6
 // split).
@@ -54,7 +54,7 @@ import {
 	destroyPreview,
 } from "./hex-poi-preview.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const HEX_TILE_W = 296;
 const HEX_TILE_H = 256;
 const COLORED_HEX_TILE_W = 572;

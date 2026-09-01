@@ -1,4 +1,4 @@
-// Custom hex tiles — the data/hexes scan, the custom-tile sizing settings, the
+﻿// Custom hex tiles — the data/hexes scan, the custom-tile sizing settings, the
 // folder-navigation state and the alpha-bounds placement fit. Another leaf of
 // the HexPainterSD.mjs split.
 // Extracted verbatim from scripts/hex/HexPainterSD.mjs (Phase 5.3 sweep 6
@@ -11,7 +11,7 @@
 import { cache } from "../shared/SDXCache.mjs";
 import { _formatLabel } from "./hex-tile-labels.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const CUSTOM_TILE_FOLDER = "hexes";
 
 // Biome subdirectories for custom tiles (matching the 6 sliders)

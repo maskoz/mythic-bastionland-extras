@@ -1,4 +1,4 @@
-import { cache } from "../shared/SDXCache.mjs";
+﻿import { cache } from "../shared/SDXCache.mjs";
 import { readShippedManifest, writeShippedManifest } from "../shared/shipped-asset-cache.mjs";
 import { buildCaveLoops, generateCurvedWalls, generateCurvedWallVisuals } from "./DungeonCaveSD.mjs";
 import {
@@ -100,7 +100,7 @@ import {
 // non-deprecated reference without per-callsite rewrites.
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 // World setting (GM-only) that opts players into the Dungeon Painter tab.
 // Default off: players cannot see or use the Dungeons tab unless the GM enables this.
 const SETTING_ALLOW_PLAYER_PAINT = "allowPlayerDungeonPainting";

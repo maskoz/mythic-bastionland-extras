@@ -1,4 +1,4 @@
-/**
+﻿/**
  * TileFlattenSD — Flatten multiple selected tiles into a single tile.
  * Adds a "Flatten" button to the Tile HUD when 2+ tiles are controlled.
  * Adds an "Unflatten" button to the Tile HUD for tiles created by this module.
@@ -8,7 +8,7 @@
  * - Unflatten: Restores original tiles from data stored in the flattened tile's flags.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const FLATTEN_ACTION = "sdx-flatten-tiles";
 const UNFLATTEN_ACTION = "sdx-unflatten-tiles";
 const UPLOAD_DIR = "flattened-tiles";
@@ -879,7 +879,7 @@ export function registerTileFlattenHooks() {
 
 /**
  * Returns floor tiles grouped by elevation, excluding already-flattened tiles.
- * Only tiles with flags.shadowdark-extras.dungeonFloor = true are included.
+ * Only tiles with flags.mythicbastionland-extras.dungeonFloor = true are included.
  * @returns {Object} { [elevation]: TileDocument[] }
  */
 export function getDungeonFloorLevels() {

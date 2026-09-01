@@ -1,4 +1,4 @@
-// v13+ FilePicker namespaced under foundry.applications.apps.
+﻿// v13+ FilePicker namespaced under foundry.applications.apps.
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
 /**
@@ -13,7 +13,7 @@ import { createDungeonOccupancy, generateDungeonDecor } from "./DungeonDecorSD.m
 
 const ROTJS_STYLES = ["maze", "rogue", "digger", "uniform"];
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const GRID_SIZE = 100;
 const LEVEL_HEIGHT = 10;
 const ELEVATION_TOLERANCE = 5;

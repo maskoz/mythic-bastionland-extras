@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SDX Roller — Group Ability Check Roller for Shadowdark
  *
  * A dialog-style application that lets the GM pick actors,
@@ -11,7 +11,7 @@ import {
 	isSdxRollAuthority,
 } from "./SDXRollerData.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /* ------------------------------------------------------------------ */
 /*  Ability map for Shadowdark                                        */

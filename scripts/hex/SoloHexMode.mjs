@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Solo Hex Mode
  *
  * When active, moving a token onto a hex automatically generates:
@@ -16,7 +16,7 @@ import { generateHexHtml } from "./HexContentGenerator.mjs";
 import { saveHexRecord, HEX_JOURNAL_NAME } from "./HexTooltipSD.mjs";
 import { registerContent } from "./ContentRegistry.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /* ═══════════════════════════════════════════════════════════════
    STATE

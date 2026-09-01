@@ -1,4 +1,4 @@
-// Journal pin pointer interactions — extracted from the JournalPinGraphics
+﻿// Journal pin pointer interactions — extracted from the JournalPinGraphics
 // class in scripts/journal/pin-rendering.mjs (Phase 5.3.5 split).
 //
 // Hover, drag, release, journal opening and the context menu. Each function
@@ -397,7 +397,7 @@ export function showPinContextMenu(pin, event) {
 			callback: async () => {
 				if (game.user.isGM) {
 					// Broadcast to others
-					game.socket.emit("module.shadowdark-extras", {
+					game.socket.emit("module.mythicbastionland-extras", {
 						type: "panToPin",
 						x: pin.pinData.x,
 						y: pin.pinData.y,
@@ -425,7 +425,7 @@ export function showPinContextMenu(pin, event) {
 			callback: async () => {
 				// Broadcast ping only, no pan
 				if (game.user.isGM) {
-					game.socket.emit("module.shadowdark-extras", {
+					game.socket.emit("module.mythicbastionland-extras", {
 						type: "pingPin",
 						sceneId: canvas.scene?.id,
 						pinId: pin.pinData.id,

@@ -1,11 +1,3 @@
-// Tray handle bindings — extracted from scripts/tray/TrayApp.mjs (Phase 5.3
-// split). Prototype mixin: the handle strip that stays visible when the tray
-// is collapsed. Theatre of the Mind overlays used to live here as
-// tom-overlay-manager; they now live inline in tray.hbs scenes-view (see
-// POI transform controls. Merged via Object.assign(TrayApp.prototype, ...).
-
-import { FormationSpawnerSD } from "../combat/FormationSpawnerSD.mjs";
-import { applyRailIndicators, showLeaderDialog, showMovementModeDialog } from "../combat/MarchingModeSD.mjs";
 import { disableDungeonPainting, enableDungeonPainting } from "../dungeon/DungeonPainterSD.mjs";
 import { adjustPoiScale, canRedoPoi, canUndoPoi, disablePainting, disablePreview, enablePainting, enablePreview, getActiveTileTab, getPoiMirror, getPoiScale, redoLastPoi, rotatePoiLeft, rotatePoiRight, setDecorMode, togglePoiMirror, undoLastPoi } from "../hex/HexPainterSD.mjs";
 import { getActiveHexFogEffect, getAvailableHexFogEffects, isFogEffectsEnabled, isHexFogEnabled, setHexFogEffect, setHexFogEnabled } from "../hex/SDXHexFogSD.mjs";
@@ -13,14 +5,8 @@ import { toggleSoloMode } from "../hex/SoloHexMode.mjs";
 import { cycleViewMode, setViewMode } from "./TraySD.mjs";
 
 export const TrayHandleBindings = {
-	/**
-     * Tray handle: expand/collapse, view cycle, every GM tool button, and
-     * the POI transform controls.
-     * @param {HTMLElement} elem - The rendered tray root
-     */
 	_bindHandleButtons(elem) {
-
-		// Toggle button - click to expand/collapse
+		// Toggle button
 		elem.querySelector(".tray-handle-button-toggle")?.addEventListener("click", e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -34,73 +20,12 @@ export const TrayHandleBindings = {
 			cycleViewMode();
 		});
 
-		// GM Tools Buttons
-		elem.querySelector(".tray-handle-button-tool[data-action='tom-scene-switcher']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			this._toggleTomScenePanel();
-		});
-
-		// GM Tools — overlays are now inlined in tray.hbs scenes-view (no handle btn)
-		elem.querySelector(".tray-handle-button-tool[data-action='leader']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			showLeaderDialog();
-		});
-
-		elem.querySelector(".tray-handle-button-tool[data-action='marching']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			showMovementModeDialog();
-		});
-
-		// A render rebuilds these buttons from the template, which drops the
-		// leader/marching active styling. Re-apply it from the live state.
-		applyRailIndicators(elem);
-
-		elem.querySelector(".tray-handle-button-tool[data-action='formation']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			FormationSpawnerSD.show();
-		});
-
-		// Light Tracker Button
-		elem.querySelector(".tray-handle-button-tool[data-action='light-tracker']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			// Use SDX AppV2 Light Tracker if available, fallback to system tracker
-			if (game.shadowdarkExtras?.lightTracker?.toggle) {
-				game.shadowdarkExtras.lightTracker.toggle();
-			}
-			else if (game.shadowdark?.lightSourceTracker?.toggleInterface) {
-				game.shadowdark.lightSourceTracker.toggleInterface();
-			}
-			else {
-				ui.notifications.warn("Light Source Tracker not found.");
-			}
-		});
-
-		// Carousing Button
-		elem.querySelector(".tray-handle-button-tool[data-action='carousing']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			if (window.sdxOpenCarousingOverlay) {
-				window.sdxOpenCarousingOverlay();
-			}
-			else {
-				ui.notifications.warn("Carousing system not ready.");
-			}
-		});
-
 		// Drawing Tools Button
 		elem.querySelector(".tray-handle-button-tool[data-action='sdx-drawing']")?.addEventListener("click", e => {
 			e.preventDefault();
 			e.stopPropagation();
-			if (game.shadowdarkExtras?.drawingToolbar?.toggle) {
-				game.shadowdarkExtras.drawingToolbar.toggle();
-			}
-			else {
-				ui.notifications.warn("Drawing tools not ready.");
+			if (game.mbExtras?.drawingToolbar?.toggle) {
+				game.mbExtras.drawingToolbar.toggle();
 			}
 		});
 
@@ -113,19 +38,16 @@ export const TrayHandleBindings = {
 			new MaphubLauncherApp().render(true);
 		});
 
-		// SDX Coords Toggle Button
+		// SDX Coords Toggle
 		elem.querySelector(".tray-handle-button-tool[data-action='sdx-coords']")?.addEventListener("click", e => {
 			e.preventDefault();
 			e.stopPropagation();
 			if (window.SDXCoordinates) {
 				window.SDXCoordinates.toggle();
 			}
-			else {
-				ui.notifications.warn("Coordinate display not supported on this map.");
-			}
 		});
 
-		// Hex Tooltip Toggle Button
+		// Hex Tooltip Toggle
 		elem.querySelector(".tray-handle-button-tool[data-action='sdx-hex-tooltip']")?.addEventListener("click", e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -137,7 +59,7 @@ export const TrayHandleBindings = {
 			e.currentTarget.classList.toggle("active", !!active);
 		});
 
-		// Hex Fog Toggle Button (GM only)
+		// Hex Fog Toggle
 		elem.querySelector(".tray-handle-button-tool[data-action='sdx-hex-fog']")?.addEventListener("click", async e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -152,7 +74,7 @@ export const TrayHandleBindings = {
 			btn.classList.toggle("active", !currentlyEnabled);
 		});
 
-		// Hex Fog Effects Context Menu (right-click on hex fog button)
+		// Hex Fog Effects Context Menu
 		elem.querySelector(".tray-handle-button-tool[data-action='sdx-hex-fog']")?.addEventListener("contextmenu", e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -162,64 +84,38 @@ export const TrayHandleBindings = {
 				ui.notifications.warn("Enable hex fog first.");
 				return;
 			}
-
-			// Remove any existing menu
 			document.querySelector(".sdx-fog-effect-menu")?.remove();
-
 			const sceneId = canvas.scene.id;
 			const current = getActiveHexFogEffect(sceneId);
 			const effects = getAvailableHexFogEffects();
-
 			const menu = document.createElement("div");
 			menu.className = "sdx-fog-effect-menu";
-
-			// Header
 			const header = document.createElement("div");
 			header.className = "sdx-fog-effect-menu-header";
 			header.textContent = "Fog Effects";
 			menu.appendChild(header);
-
-			// "None" option
 			const noneItem = document.createElement("div");
 			noneItem.className = `sdx-fog-effect-menu-item${!current ? " active" : ""}`;
 			noneItem.innerHTML = "<i class=\"fa-solid fa-ban\"></i><span>None</span>";
-			noneItem.addEventListener("click", () => {
-				setHexFogEffect(sceneId, null);
-				menu.remove();
-			});
+			noneItem.addEventListener("click", () => { setHexFogEffect(sceneId, null); menu.remove(); });
 			menu.appendChild(noneItem);
-
-			// Effect options
 			for (const fx of effects) {
 				const item = document.createElement("div");
 				item.className = `sdx-fog-effect-menu-item${current === fx.name ? " active" : ""}`;
 				item.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i><span>${fx.label}</span>`;
-				item.addEventListener("click", () => {
-					setHexFogEffect(sceneId, fx.name);
-					menu.remove();
-				});
+				item.addEventListener("click", () => { setHexFogEffect(sceneId, fx.name); menu.remove(); });
 				menu.appendChild(item);
 			}
-
-			// Position near the button
 			const rect = e.currentTarget.getBoundingClientRect();
-			menu.style.position = "fixed";
-			menu.style.left = `${rect.left}px`;
-			menu.style.top = `${rect.bottom + 4}px`;
-			menu.style.zIndex = "10001";
+			menu.style.cssText = `position:fixed;left:${rect.left}px;top:${rect.bottom + 4}px;z-index:10001`;
 			document.body.appendChild(menu);
-
-			// Close on outside click
 			const closeMenu = ev => {
-				if (!menu.contains(ev.target)) {
-					menu.remove();
-					document.removeEventListener("mousedown", closeMenu, true);
-				}
+				if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener("mousedown", closeMenu, true); }
 			};
 			setTimeout(() => document.addEventListener("mousedown", closeMenu, true), 0);
 		});
 
-		// Solo Hex Mode Toggle Button (GM only)
+		// Solo Hex Mode Toggle
 		elem.querySelector(".tray-handle-button-tool[data-action='sdx-solo-mode']")?.addEventListener("click", e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -227,7 +123,7 @@ export const TrayHandleBindings = {
 			e.currentTarget.classList.toggle("active", active);
 		});
 
-		// SDX Roller Button
+		// SDX Roller
 		elem.querySelector(".tray-handle-button-tool[data-action='sdx-roller']")?.addEventListener("click", async e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -235,7 +131,7 @@ export const TrayHandleBindings = {
 			new SDXRollerApp().render(true);
 		});
 
-		// POI Undo Button
+		// POI Undo
 		elem.querySelector(".tray-handle-button-tool[data-action='poi-undo']")?.addEventListener("click", async e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -244,7 +140,7 @@ export const TrayHandleBindings = {
 			elem.querySelector(".poi-redo-btn")?.classList.toggle("disabled", !canRedoPoi());
 		});
 
-		// POI Redo Button
+		// POI Redo
 		elem.querySelector(".tray-handle-button-tool[data-action='poi-redo']")?.addEventListener("click", async e => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -253,45 +149,32 @@ export const TrayHandleBindings = {
 			elem.querySelector(".poi-redo-btn")?.classList.toggle("disabled", !canRedoPoi());
 		});
 
-		// POI Scale Down Button
+		// POI Scale
 		elem.querySelector(".tray-handle-button-tool[data-action='poi-scale-down']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			adjustPoiScale(-0.1);
-			this._updatePoiScaleDisplay();
+			e.preventDefault(); e.stopPropagation();
+			adjustPoiScale(-0.1); this._updatePoiScaleDisplay();
 		});
-
-		// POI Scale Up Button
 		elem.querySelector(".tray-handle-button-tool[data-action='poi-scale-up']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			adjustPoiScale(0.1);
-			this._updatePoiScaleDisplay();
+			e.preventDefault(); e.stopPropagation();
+			adjustPoiScale(0.1); this._updatePoiScaleDisplay();
 		});
 
-		// POI Rotate Left Button
+		// POI Rotate
 		elem.querySelector(".tray-handle-button-tool[data-action='poi-rotate-left']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			rotatePoiLeft();
+			e.preventDefault(); e.stopPropagation(); rotatePoiLeft();
 		});
-
-		// POI Rotate Right Button
 		elem.querySelector(".tray-handle-button-tool[data-action='poi-rotate-right']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
-			rotatePoiRight();
+			e.preventDefault(); e.stopPropagation(); rotatePoiRight();
 		});
 
-		// POI Mirror Button
+		// POI Mirror
 		elem.querySelector(".tray-handle-button-tool[data-action='poi-mirror']")?.addEventListener("click", e => {
-			e.preventDefault();
-			e.stopPropagation();
+			e.preventDefault(); e.stopPropagation();
 			togglePoiMirror();
 			e.currentTarget.classList.toggle("active", getPoiMirror());
 		});
 
-		// Tab buttons
+		// Tab buttons — switch between hexes / dungeons / decor / pins / notes
 		elem.querySelectorAll(".tray-tab-button").forEach(btn => {
 			btn.addEventListener("click", async e => {
 				e.preventDefault();
@@ -299,13 +182,10 @@ export const TrayHandleBindings = {
 				const view = btn.dataset.view;
 				if (view) {
 					await setViewMode(view);
-					// Enable/disable painting based on view
 					if (view === "hexes" && this._isExpanded) {
 						enablePainting();
 						disableDungeonPainting();
-						if (getActiveTileTab() === "symbols") {
-							enablePreview();
-						}
+						if (getActiveTileTab() === "symbols") enablePreview();
 					}
 					else if (view === "decor" && this._isExpanded) {
 						setDecorMode(true);
@@ -329,9 +209,6 @@ export const TrayHandleBindings = {
 		});
 	},
 
-	/**
-     * Update POI scale percentage display in the DOM without re-rendering
-     */
 	_updatePoiScaleDisplay() {
 		const elem = document.querySelector(".sdx-tray");
 		if (!elem) return;

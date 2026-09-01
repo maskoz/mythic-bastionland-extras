@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Shared ToM defaults.
  *
  * The default scene background is a single source of truth: both
@@ -7,4 +7,4 @@
  * changing this one constant — and the regression test asserts the file it
  * points at actually exists in the module.
  */
-export const DEFAULT_SCENE_BACKGROUND = "modules/shadowdark-extras/assets/default-scene.jpg";
+export const DEFAULT_SCENE_BACKGROUND = "modules/mythicbastionland-extras/assets/default-scene.jpg";

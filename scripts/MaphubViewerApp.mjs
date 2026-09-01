@@ -1,4 +1,4 @@
-// v13+ FilePicker namespaced under foundry.applications.apps.
+﻿// v13+ FilePicker namespaced under foundry.applications.apps.
 import { MODULE_ID, FilePicker } from "./maphub-constants.mjs";
 
 /**
@@ -1072,7 +1072,7 @@ export class MaphubViewerApp extends ApplicationV2 {
 		return [
 			"if (!event?.user?.isSelf) return;",
 			"const t = event?.data?.token; if (!t) return;",
-			'const conn = region?.flags?.["shadowdark-extras"]?.spiral;',
+			'const conn = region?.flags?.["mythicbastionland-extras"]?.spiral;',
 			"if (!Array.isArray(conn) || conn.length < 2) return;",
 			"const origin = t.level;",
 			"const here = conn.find(c => c.id === origin) ?? conn.slice().sort((a,b)=>Math.abs(a.bottom-(t.elevation??0))-Math.abs(b.bottom-(t.elevation??0)))[0];",

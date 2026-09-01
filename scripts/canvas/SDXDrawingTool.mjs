@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SDX Drawing Tool
  * Whiteboard drawing system for Shadowdark Extras.
  * Allows players and GMs to draw temporary markings on the canvas.
@@ -13,8 +13,8 @@ import {
 	getHexClusterOutline,
 } from "./drawing-geometry.mjs";
 
-const MODULE_ID = "shadowdark-extras";
-const SOCKET_NAME = "module.shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
+const SOCKET_NAME = "module.mythicbastionland-extras";
 
 import { COLORS, STAMP_SIZES } from "./drawing-constants.mjs";
 import { DrawingShapes } from "./drawing-shapes.mjs";

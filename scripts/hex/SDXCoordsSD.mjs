@@ -1,9 +1,9 @@
-/**
+﻿/**
  * SDX Coords — Map coordinate overlay for Shadowdark Extras
  * Clean-room reimplementation inspired by map-coords functionality
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // Display states for coordinate overlay
 const DISPLAY_STATES = {
@@ -499,7 +499,7 @@ class SDXCoord {
 // ---- Hook Setup ----
 
 /**
- * Initialize SDX Coords hooks. Call from shadowdark-extras.mjs.
+ * Initialize SDX Coords hooks. Call from mythicbastionland-extras.mjs.
  */
 export function initSDXCoords() {
 	// Canvas ready — create/destroy coordinate overlay
@@ -522,7 +522,7 @@ export function initSDXCoords() {
 }
 
 /**
- * Register SDX Coords settings. Call from the init hook in shadowdark-extras.mjs.
+ * Register SDX Coords settings. Call from the init hook in mythicbastionland-extras.mjs.
  */
 export function registerSDXCoordsSettings() {
 	// Hidden data setting

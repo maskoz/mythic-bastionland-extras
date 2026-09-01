@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Dragging the shadowdark-crawl-helper lights-out carousel.
  *
  * Extracted from the composition root in Phase 3. Compatibility code for a
@@ -109,7 +109,7 @@ export function initCarouselDrag() {
 					}
 				}
 				catch(e) {
-					console.warn("shadowdark-extras | Failed to restore carousel position:", e);
+					console.warn("mythicbastionland-extras | Failed to restore carousel position:", e);
 				}
 			}
 		}

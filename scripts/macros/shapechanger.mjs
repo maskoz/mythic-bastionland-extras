@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Shapechanger / Wolf Shape Spell Macro
  *
  * Generic transformation system. Transforms the casting player's token and actor
@@ -12,7 +12,7 @@
  * Options can still be passed as a 5th parameter to override the auto-detected config.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // Default options (used for Shapechanger and as fallback)
 const SHAPECHANGER_DEFAULTS = {
@@ -989,7 +989,7 @@ const onRenderPlayerSheet = (sheet, html, data) => {
 					await shadowdark.chat.showItemCard(item.uuid);
 				}
 				catch(err) {
-					console.error("shadowdark-extras: showItemCard failed", err);
+					console.error("mythicbastionland-extras: showItemCard failed", err);
 					item.sheet.render(true);
 				}
 				return;
@@ -1017,7 +1017,7 @@ const onRenderPlayerSheet = (sheet, html, data) => {
 					await shadowdark.chat.showItemCard(item.uuid);
 				}
 				catch(err) {
-					console.error("shadowdark-extras: showItemCard failed", err);
+					console.error("mythicbastionland-extras: showItemCard failed", err);
 					item.sheet.render(true);
 				}
 			}
@@ -1029,7 +1029,7 @@ const onRenderPlayerSheet = (sheet, html, data) => {
 				await shadowdark.chat.showItemCard(item.uuid);
 			}
 			catch(err) {
-				console.error("shadowdark-extras: showItemCard failed", err);
+				console.error("mythicbastionland-extras: showItemCard failed", err);
 				item.sheet.render(true);
 			}
 		}

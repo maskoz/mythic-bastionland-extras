@@ -1,4 +1,4 @@
-// Dungeon painter tab bindings — extracted from scripts/tray/TrayApp.mjs
+﻿// Dungeon painter tab bindings — extracted from scripts/tray/TrayApp.mjs
 // (Phase 5.3 split). Prototype mixin: mode tabs, the five tile pickers, the
 // wall options, level flatten/unflatten, and the procedural generator panel.
 // Merged via Object.assign(TrayApp.prototype, DungeonBindings).
@@ -196,8 +196,8 @@ export const DungeonBindings = {
 			}
 			else {
 				const options = flattenedTiles.map(t => {
-					const el = t.flags?.["shadowdark-extras"]?.dungeonFlattenedLevel ?? "?";
-					const cnt = t.flags?.["shadowdark-extras"]?.originalTileCount ?? "?";
+					const el = t.flags?.["mythicbastionland-extras"]?.dungeonFlattenedLevel ?? "?";
+					const cnt = t.flags?.["mythicbastionland-extras"]?.originalTileCount ?? "?";
 					return `<option value="${t.id}">Elevation ${el} (${cnt} tiles)</option>`;
 				}).join("");
 				tileDoc = await new Promise(resolve => {

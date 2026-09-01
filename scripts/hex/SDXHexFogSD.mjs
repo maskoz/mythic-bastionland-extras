@@ -1,8 +1,8 @@
-
+﻿
 
 import { JournalPinRenderer } from "../journal/JournalPinsSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const HEX_JOURNAL_NAME = "__sdx_hex_data__";
 
 // ─── Fog Shader Registry ─────────────────────────────────────────────

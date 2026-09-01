@@ -14,4 +14,4 @@
  * namespaces, socket event names, and asset paths. Changing it here would not
  * migrate any of those.
  */
-export const MODULE_ID = "shadowdark-extras";
+export const MODULE_ID = "mythicbastionland-extras";

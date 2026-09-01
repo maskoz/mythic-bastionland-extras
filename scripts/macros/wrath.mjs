@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Wrath Spell Macro
  *
  * This module contains the Wrath spell implementation for Shadowdark Extras.
@@ -6,7 +6,7 @@
  * On critical success, grants +4 to hit and +2d8 damage.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // Import helper functions from identify.mjs
 

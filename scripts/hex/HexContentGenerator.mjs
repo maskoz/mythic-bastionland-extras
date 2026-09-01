@@ -1,7 +1,7 @@
-import { loadDungeonData, generateDungeonName } from "../dungeon/DungeonGenerator.mjs";
+﻿import { loadDungeonData, generateDungeonName } from "../dungeon/DungeonGenerator.mjs";
 import { loadSettlementData, generateSettlementName, generateNpc, cap } from "./SettlementGenerator.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 let _data = null;
 let _monsterIndex = null;

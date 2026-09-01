@@ -1,8 +1,8 @@
-import { getDDPacks, removeDDPack, scanDDPack, setDDPackEnabled, DD_DECOR_BASE } from "./DDPackManagerSD.mjs";
+﻿import { getDDPacks, removeDDPack, scanDDPack, setDDPackEnabled, DD_DECOR_BASE } from "./DDPackManagerSD.mjs";
 import { DDPackPreviewApp } from "./DDPackPreviewAppSD.mjs";
 import { reloadDecorAssets } from "../hex/HexPainterSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const { ApplicationV2 } = foundry.applications.api;
 
 const STYLES = `

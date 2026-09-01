@@ -1,4 +1,4 @@
-
+﻿
 
 import { TrayApp, registerTrayAppHooks } from "./TrayApp.mjs";
 import { JournalPinManager, normalizeImageTint } from "../journal/JournalPinsSD.mjs";
@@ -31,7 +31,7 @@ import {
 	isFeatureEnabled,
 } from "../settings/feature-gates.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * The Token fields a tray rebuild would learn nothing from.
@@ -167,7 +167,7 @@ let _currentActor = null;
 
 /**
  * Initialize the Character Tray
- * Called from shadowdark-extras.mjs ready hook
+ * Called from mythicbastionland-extras.mjs ready hook
  */
 export function initTray() {
 	// Check if tray is enabled

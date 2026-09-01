@@ -1,7 +1,7 @@
-// Pin style + shared constants — extracted from scripts/journal/JournalPinsSD.mjs
+﻿// Pin style + shared constants — extracted from scripts/journal/JournalPinsSD.mjs
 // (Phase 5.1 split). Leaf module: no imports.
 
-export const MODULE_ID = "shadowdark-extras";
+export const MODULE_ID = "mythicbastionland-extras";
 export const FLAG_KEY = "journalPins";
 export const FOLDER_FLAG_KEY = "pinFolders";
 export const LAYER_NAME = "sdx-journal-pins-layer";

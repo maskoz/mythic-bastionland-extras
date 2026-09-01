@@ -1,4 +1,4 @@
-const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+﻿const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class MaphubLauncherApp extends HandlebarsApplicationMixin(ApplicationV2) {
 	static DEFAULT_OPTIONS = {
@@ -19,7 +19,7 @@ export class MaphubLauncherApp extends HandlebarsApplicationMixin(ApplicationV2)
 
 	static PARTS = {
 		main: {
-			template: "modules/shadowdark-extras/templates/maphub-launcher.hbs",
+			template: "modules/mythicbastionland-extras/templates/maphub-launcher.hbs",
 		},
 	};
 

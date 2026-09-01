@@ -1,4 +1,4 @@
-// Journal pin and map note list bindings — extracted from
+﻿// Journal pin and map note list bindings — extracted from
 // scripts/tray/TrayApp.mjs (Phase 5.3 split). Prototype mixin: the pin list
 // and its folders, the drag-drop that assigns pins to folders, the Map-Notes
 // conversion dialog, and the search box together with the filter it drives.
@@ -52,7 +52,7 @@ export const PinListBindings = {
 
 					if (game.user.isGM) {
 						if (pin && pin.animatePing) pin.animatePing("ping");
-						game.socket.emit("module.shadowdark-extras", {
+						game.socket.emit("module.mythicbastionland-extras", {
 							type: "pingPin",
 							sceneId: canvas.scene?.id,
 							pinId: id,
@@ -75,7 +75,7 @@ export const PinListBindings = {
 								);
 								if (pin && pin.animatePing) pin.animatePing("bring");
 							}
-							game.socket.emit("module.shadowdark-extras", {
+							game.socket.emit("module.mythicbastionland-extras", {
 								type: "panToPin",
 								x: x,
 								y: y,
@@ -174,7 +174,7 @@ export const PinListBindings = {
 			}).catch(() => null);
 		};
 
-		const ICON_DIR = "modules/shadowdark-extras/assets/icons/";
+		const ICON_DIR = "modules/mythicbastionland-extras/assets/icons/";
 		const FilePickerImpl = foundry.applications.apps.FilePicker?.implementation
 			?? globalThis.FilePicker;
 

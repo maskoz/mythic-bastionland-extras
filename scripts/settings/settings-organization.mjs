@@ -1,4 +1,4 @@
-import { MODULE_ID } from "../shared/module-id.mjs";
+﻿import { MODULE_ID } from "../shared/module-id.mjs";
 
 /**
  * Setup the renderSettingsConfig hook to organize settings with section headers.
@@ -47,70 +47,70 @@ export function setupSettingsOrganization() {
 
 		// 1. CONFIGURATION MENUS - First is Combat Settings Menu
 		insertHeaderBefore(
-			'[data-key="shadowdark-extras.combatSettingsMenu"]',
+			'[data-key="mythicbastionland-extras.combatSettingsMenu"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.configuration_menus"),
 			"fas fa-cogs"
 		);
 
 		// 2. COMBAT & SPELLS - First is Focus Tracker
 		insertHeaderBefore(
-			'[name="shadowdark-extras.enableFocusTracker"]',
+			'[name="mythicbastionland-extras.enableFocusTracker"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.combat_spells"),
 			"fas fa-magic"
 		);
 
 		// 3. CHARACTER SHEET - First is Enhanced Header
 		insertHeaderBefore(
-			'[name="shadowdark-extras.enableEnhancedHeader"]',
+			'[name="mythicbastionland-extras.enableEnhancedHeader"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.character_sheet"),
 			"fas fa-user"
 		);
 
 		// 4. INVENTORY - First is Containers
 		insertHeaderBefore(
-			'[name="shadowdark-extras.enableContainers"]',
+			'[name="mythicbastionland-extras.enableContainers"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.inventory"),
 			"fas fa-box-open"
 		);
 
 		// 5. CAROUSING - First is Enable Carousing
 		insertHeaderBefore(
-			'[name="shadowdark-extras.enableCarousing"]',
+			'[name="mythicbastionland-extras.enableCarousing"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.carousing"),
 			"fas fa-beer-mug-empty"
 		);
 
 		// 6. NPC FEATURES - First is NPC Inventory
 		insertHeaderBefore(
-			'[name="shadowdark-extras.enableNpcInventory"]',
+			'[name="mythicbastionland-extras.enableNpcInventory"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.npc_features"),
 			"fas fa-skull"
 		);
 
 		// 7. VISUAL & ANIMATION - First is Torch Animations
 		insertHeaderBefore(
-			'[name="shadowdark-extras.enableTorchAnimations"]',
+			'[name="mythicbastionland-extras.enableTorchAnimations"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.visual_features"),
 			"fas fa-sparkles"
 		);
 
 		// 8. SDX ROLLS - First is Recap Message
 		insertHeaderBefore(
-			'[name="shadowdark-extras.SDXROLLSRecapMessage"]',
+			'[name="mythicbastionland-extras.SDXROLLSRecapMessage"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.sdx_rolls"),
 			"fas fa-dice-d20"
 		);
 
 		// 9. TOKEN TOOLBAR - First is Enable Token Toolbar
 		insertHeaderBefore(
-			'[name="shadowdark-extras.tokenToolbar.enabled"]',
+			'[name="mythicbastionland-extras.tokenToolbar.enabled"]',
 			game.i18n.localize("SHADOWDARK_EXTRAS.settings.headers.token_toolbar"),
 			"fas fa-id-badge"
 		);
 
 		// 10. DRAWING TOOLS - First is Enable Player Drawing
 		insertHeaderBefore(
-			'[name="shadowdark-extras.drawing.enablePlayerDrawing"]',
+			'[name="mythicbastionland-extras.drawing.enablePlayerDrawing"]',
 			"Drawing Tools",
 			"fas fa-pencil"
 		);

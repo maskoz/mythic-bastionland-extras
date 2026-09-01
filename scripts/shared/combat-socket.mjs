@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Combat socket registration and the module's socketlib message handlers.
  * Handler names and payloads are compatibility surfaces for combat workflows.
  */
@@ -7,7 +7,7 @@ import { endFocusSpell } from "../effects/FocusSpellTrackerSD.mjs";
 import { showScrollingText } from "./scrolling-text.mjs";
 import { FEATURE_IDS, isFeatureEnabled, anyFeatureEnabled } from "../settings/feature-gates.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 let socketlibSocket = null;
 
 export function setupCombatSocket() {
@@ -19,14 +19,14 @@ export function setupCombatSocket() {
 	}
 
 	if (!globalThis.socketlib) {
-		console.error("shadowdark-extras | socketlib not found, combat socket cannot be initialized");
+		console.error("mythicbastionland-extras | socketlib not found, combat socket cannot be initialized");
 		return;
 	}
 
 	socketlibSocket = globalThis.socketlib.registerModule(MODULE_ID);
 
 	if (!socketlibSocket) {
-		console.error("shadowdark-extras | Failed to register socket module. Make sure 'socket: true' is set in module.json");
+		console.error("mythicbastionland-extras | Failed to register socket module. Make sure 'socket: true' is set in module.json");
 		return;
 	}
 	if (isFeatureEnabled(FEATURE_IDS.DAMAGE_CARDS)) socketlibSocket.register("setTargetDefenseResult", async ({ messageId, tokenId, result }) => {
@@ -43,7 +43,7 @@ export function setupCombatSocket() {
 	if (isFeatureEnabled(FEATURE_IDS.DAMAGE_CARDS)) socketlibSocket.register("applyTokenDamage", async data => {
 		const token = canvas.tokens.get(data.tokenId);
 		if (!token || !token.actor) {
-			console.warn("shadowdark-extras | Token not found:", data.tokenId);
+			console.warn("mythicbastionland-extras | Token not found:", data.tokenId);
 			return false;
 		}
 
@@ -52,7 +52,7 @@ export function setupCombatSocket() {
 			const maxHp = token.actor.system?.attributes?.hp?.max ?? 0;
 
 			// Check for Glassbones effect (double damage)
-			const hasGlassbones = token.actor.getFlag("shadowdark-extras", "glassbones");
+			const hasGlassbones = token.actor.getFlag("mythicbastionland-extras", "glassbones");
 
 			let finalDamage = 0;
 			// Allow explicit isHealing flag, otherwise infer from negative damage
@@ -74,7 +74,7 @@ export function setupCombatSocket() {
 						// Skip standard damage type (no resistance/immunity/vulnerability applies)
 						if (componentType !== "standard" && componentType !== "damage") {
 							// Check for absorption FIRST (value -1 = damage becomes healing)
-							const absorptionValue = token.actor.getFlag("shadowdark-extras", `absorption.${componentType}`);
+							const absorptionValue = token.actor.getFlag("mythicbastionland-extras", `absorption.${componentType}`);
 							if (absorptionValue === -1 || absorptionValue === true) {
 								componentDamage = -componentDamage; // Convert to healing
 								isAbsorbed = true;
@@ -85,14 +85,14 @@ export function setupCombatSocket() {
 							}
 
 							// Check for immunity (0 damage for this component) - skip if absorbed
-							const isImmune = !isAbsorbed && token.actor.getFlag("shadowdark-extras", `immunity.${componentType}`);
+							const isImmune = !isAbsorbed && token.actor.getFlag("mythicbastionland-extras", `immunity.${componentType}`);
 							if (isImmune) {
 								componentDamage = 0;
 							}
 							else if (!isAbsorbed) {
 								// Check for resistance/vulnerability
-								const isResistant = token.actor.getFlag("shadowdark-extras", `resistance.${componentType}`);
-								const isVulnerable = token.actor.getFlag("shadowdark-extras", `vulnerability.${componentType}`);
+								const isResistant = token.actor.getFlag("mythicbastionland-extras", `resistance.${componentType}`);
+								const isVulnerable = token.actor.getFlag("mythicbastionland-extras", `vulnerability.${componentType}`);
 
 								if (isResistant) {
 									componentDamage = Math.floor(componentDamage / 2);
@@ -106,13 +106,13 @@ export function setupCombatSocket() {
 						// Check for physical resistance/immunity/vulnerability
 						// Only check if not already absorbed
 						if (!isAbsorbed && ["bludgeoning", "slashing", "piercing"].includes(componentType)) {
-							const isPhysicalImmune = token.actor.getFlag("shadowdark-extras", "immunity.physical");
+							const isPhysicalImmune = token.actor.getFlag("mythicbastionland-extras", "immunity.physical");
 							if (isPhysicalImmune) {
 								componentDamage = 0;
 							}
 							else if (componentDamage > 0) {
-								const isPhysicalResistant = token.actor.getFlag("shadowdark-extras", "resistance.physical");
-								const isPhysicalVulnerable = token.actor.getFlag("shadowdark-extras", "vulnerability.physical");
+								const isPhysicalResistant = token.actor.getFlag("mythicbastionland-extras", "resistance.physical");
+								const isPhysicalVulnerable = token.actor.getFlag("mythicbastionland-extras", "vulnerability.physical");
 
 								if (isPhysicalResistant) {
 									componentDamage = Math.floor(componentDamage / 2);
@@ -124,12 +124,12 @@ export function setupCombatSocket() {
 
 							// Check for non-magical weapon resistance/immunity
 							if (componentDamage > 0 && !data.isMagicalWeapon) {
-								const isNonMagicImmune = token.actor.getFlag("shadowdark-extras", "immunity.nonmagic");
+								const isNonMagicImmune = token.actor.getFlag("mythicbastionland-extras", "immunity.nonmagic");
 								if (isNonMagicImmune) {
 									componentDamage = 0;
 								}
 								else {
-									const isNonMagicResistant = token.actor.getFlag("shadowdark-extras", "resistance.nonmagic");
+									const isNonMagicResistant = token.actor.getFlag("mythicbastionland-extras", "resistance.nonmagic");
 									if (isNonMagicResistant) {
 										componentDamage = Math.floor(componentDamage / 2);
 									}
@@ -150,7 +150,7 @@ export function setupCombatSocket() {
 					// Apply resistance/immunity/vulnerability to base damage if not standard
 					if (baseType !== "standard" && baseType !== "damage") {
 						// Check for absorption FIRST
-						const absorptionValue = token.actor.getFlag("shadowdark-extras", `absorption.${baseType}`);
+						const absorptionValue = token.actor.getFlag("mythicbastionland-extras", `absorption.${baseType}`);
 						if (absorptionValue === -1 || absorptionValue === true) {
 							baseDamage = -baseDamage; // Convert to healing
 							isAbsorbed = true;
@@ -161,13 +161,13 @@ export function setupCombatSocket() {
 						}
 
 						// Check for immunity - skip if absorbed
-						const isImmune = !isAbsorbed && token.actor.getFlag("shadowdark-extras", `immunity.${baseType}`);
+						const isImmune = !isAbsorbed && token.actor.getFlag("mythicbastionland-extras", `immunity.${baseType}`);
 						if (isImmune) {
 							baseDamage = 0;
 						}
 						else if (!isAbsorbed) {
-							const isResistant = token.actor.getFlag("shadowdark-extras", `resistance.${baseType}`);
-							const isVulnerable = token.actor.getFlag("shadowdark-extras", `vulnerability.${baseType}`);
+							const isResistant = token.actor.getFlag("mythicbastionland-extras", `resistance.${baseType}`);
+							const isVulnerable = token.actor.getFlag("mythicbastionland-extras", `vulnerability.${baseType}`);
 
 							if (isResistant) {
 								baseDamage = Math.floor(baseDamage / 2);
@@ -179,13 +179,13 @@ export function setupCombatSocket() {
 
 						// Check for physical resistance/immunity/vulnerability
 						if (!isAbsorbed && ["bludgeoning", "slashing", "piercing"].includes(baseType)) {
-							const isPhysicalImmune = token.actor.getFlag("shadowdark-extras", "immunity.physical");
+							const isPhysicalImmune = token.actor.getFlag("mythicbastionland-extras", "immunity.physical");
 							if (isPhysicalImmune) {
 								baseDamage = 0;
 							}
 							else if (baseDamage > 0) {
-								const isPhysicalResistant = token.actor.getFlag("shadowdark-extras", "resistance.physical");
-								const isPhysicalVulnerable = token.actor.getFlag("shadowdark-extras", "vulnerability.physical");
+								const isPhysicalResistant = token.actor.getFlag("mythicbastionland-extras", "resistance.physical");
+								const isPhysicalVulnerable = token.actor.getFlag("mythicbastionland-extras", "vulnerability.physical");
 
 								if (isPhysicalResistant) {
 									baseDamage = Math.floor(baseDamage / 2);
@@ -197,12 +197,12 @@ export function setupCombatSocket() {
 
 							// Check for non-magical weapon resistance/immunity
 							if (baseDamage > 0 && !data.isMagicalWeapon) {
-								const isNonMagicImmune = token.actor.getFlag("shadowdark-extras", "immunity.nonmagic");
+								const isNonMagicImmune = token.actor.getFlag("mythicbastionland-extras", "immunity.nonmagic");
 								if (isNonMagicImmune) {
 									baseDamage = 0;
 								}
 								else {
-									const isNonMagicResistant = token.actor.getFlag("shadowdark-extras", "resistance.nonmagic");
+									const isNonMagicResistant = token.actor.getFlag("mythicbastionland-extras", "resistance.nonmagic");
 									if (isNonMagicResistant) {
 										baseDamage = Math.floor(baseDamage / 2);
 									}
@@ -227,7 +227,7 @@ export function setupCombatSocket() {
 
 				if (isDamage && effectiveDamageType && effectiveDamageType !== "standard" && effectiveDamageType !== "damage") {
 					// Check for absorption FIRST
-					const absorptionValue = token.actor.getFlag("shadowdark-extras", `absorption.${effectiveDamageType}`);
+					const absorptionValue = token.actor.getFlag("mythicbastionland-extras", `absorption.${effectiveDamageType}`);
 					let isAbsorbed = false;
 					if (absorptionValue === -1 || absorptionValue === true) {
 						finalDamage = -finalDamage; // Convert to healing
@@ -239,14 +239,14 @@ export function setupCombatSocket() {
 					}
 
 					// Check for immunity - skip if absorbed
-					const isImmune = !isAbsorbed && token.actor.getFlag("shadowdark-extras", `immunity.${effectiveDamageType}`);
+					const isImmune = !isAbsorbed && token.actor.getFlag("mythicbastionland-extras", `immunity.${effectiveDamageType}`);
 					if (isImmune) {
 						finalDamage = 0;
 					}
 					else if (!isAbsorbed) {
 						// Check for resistance/vulnerability
-						const isResistant = token.actor.getFlag("shadowdark-extras", `resistance.${effectiveDamageType}`);
-						const isVulnerable = token.actor.getFlag("shadowdark-extras", `vulnerability.${effectiveDamageType}`);
+						const isResistant = token.actor.getFlag("mythicbastionland-extras", `resistance.${effectiveDamageType}`);
+						const isVulnerable = token.actor.getFlag("mythicbastionland-extras", `vulnerability.${effectiveDamageType}`);
 
 						if (isResistant) {
 							finalDamage = Math.floor(finalDamage / 2);
@@ -258,12 +258,12 @@ export function setupCombatSocket() {
 
 					// Check for non-magical weapon resistance/immunity
 					if (!isAbsorbed && finalDamage > 0 && ["bludgeoning", "slashing", "piercing"].includes(effectiveDamageType) && !data.isMagicalWeapon) {
-						const isNonMagicImmune = token.actor.getFlag("shadowdark-extras", "immunity.nonmagic");
+						const isNonMagicImmune = token.actor.getFlag("mythicbastionland-extras", "immunity.nonmagic");
 						if (isNonMagicImmune) {
 							finalDamage = 0;
 						}
 						else {
-							const isNonMagicResistant = token.actor.getFlag("shadowdark-extras", "resistance.nonmagic");
+							const isNonMagicResistant = token.actor.getFlag("mythicbastionland-extras", "resistance.nonmagic");
 							if (isNonMagicResistant) {
 								finalDamage = Math.floor(finalDamage / 2);
 							}
@@ -296,7 +296,7 @@ export function setupCombatSocket() {
 			return true;
 		}
 		catch(error) {
-			console.error("shadowdark-extras | Error in socket damage handler:", error);
+			console.error("mythicbastionland-extras | Error in socket damage handler:", error);
 			return false;
 		}
 	});
@@ -320,7 +320,7 @@ export function setupCombatSocket() {
 	)) socketlibSocket.register("applyTokenCondition", async data => {
 		const token = canvas.tokens.get(data.tokenId);
 		if (!token || !token.actor) {
-			console.warn("shadowdark-extras | Token not found for condition:", data.tokenId);
+			console.warn("mythicbastionland-extras | Token not found for condition:", data.tokenId);
 			return false;
 		}
 
@@ -329,7 +329,7 @@ export function setupCombatSocket() {
 			// Get the effect document from UUID
 			const effectDoc = await fromUuid(data.effectUuid);
 			if (!effectDoc) {
-				console.warn("shadowdark-extras | Effect not found:", data.effectUuid);
+				console.warn("mythicbastionland-extras | Effect not found:", data.effectUuid);
 				return false;
 			}
 
@@ -466,7 +466,7 @@ export function setupCombatSocket() {
 			return true;
 		}
 		catch(error) {
-			console.error("shadowdark-extras | Error in socket condition handler:", error);
+			console.error("mythicbastionland-extras | Error in socket condition handler:", error);
 			return false;
 		}
 	});
@@ -489,7 +489,7 @@ export function setupCombatSocket() {
 		}
 
 		if (!targetActor) {
-			console.warn("shadowdark-extras | removeTargetEffect: target actor not found");
+			console.warn("mythicbastionland-extras | removeTargetEffect: target actor not found");
 			return false;
 		}
 
@@ -502,7 +502,7 @@ export function setupCombatSocket() {
 		}
 
 		if (!effectDoc) {
-			console.warn("shadowdark-extras | removeTargetEffect: effect item/document not found");
+			console.warn("mythicbastionland-extras | removeTargetEffect: effect item/document not found");
 			return false;
 		}
 
@@ -530,7 +530,7 @@ export function setupCombatSocket() {
 		}
 
 		if (!targetActor) {
-			console.warn("shadowdark-extras | markBreakOnDamage: target actor not found");
+			console.warn("mythicbastionland-extras | markBreakOnDamage: target actor not found");
 			return false;
 		}
 
@@ -539,7 +539,7 @@ export function setupCombatSocket() {
 			?? targetActor.effects.get(effectItemId);
 
 		if (!effectDoc) {
-			console.warn("shadowdark-extras | markBreakOnDamage: effect item/document not found");
+			console.warn("mythicbastionland-extras | markBreakOnDamage: effect item/document not found");
 			return false;
 		}
 
@@ -569,14 +569,14 @@ export function setupCombatSocket() {
 		}
 
 		if (!targetActor) {
-			console.warn("shadowdark-extras | applyEffectToTarget: target actor not found");
+			console.warn("mythicbastionland-extras | applyEffectToTarget: target actor not found");
 			return { success: false, effectId: null };
 		}
 
 		try {
 			const effectDoc = await fromUuid(effectUuid);
 			if (!effectDoc) {
-				console.warn("shadowdark-extras | applyEffectToTarget: effect not found:", effectUuid);
+				console.warn("mythicbastionland-extras | applyEffectToTarget: effect not found:", effectUuid);
 				return { success: false, effectId: null };
 			}
 
@@ -599,7 +599,7 @@ export function setupCombatSocket() {
 			return { success: false, effectId: null };
 		}
 		catch(err) {
-			console.error("shadowdark-extras | applyEffectToTarget error:", err);
+			console.error("mythicbastionland-extras | applyEffectToTarget error:", err);
 			return { success: false, effectId: null };
 		}
 	});
@@ -619,7 +619,7 @@ export function setupCombatSocket() {
 		const auraEffect = auraActor?.effects.get(auraEffectId);
 
 		if (!sourceToken || !targetToken || !auraEffect) {
-			console.error("shadowdark-extras | applyAuraEffectViaGM: Missing data", { sourceToken, targetToken, auraEffect });
+			console.error("mythicbastionland-extras | applyAuraEffectViaGM: Missing data", { sourceToken, targetToken, auraEffect });
 			return;
 		}
 
@@ -633,7 +633,7 @@ export function setupCombatSocket() {
 		const targetToken = canvas.tokens.get(targetTokenId);
 
 		if (!auraEffect || !targetToken) {
-			console.error("shadowdark-extras | removeAuraEffectViaGM: Missing data", { auraEffect, targetToken });
+			console.error("mythicbastionland-extras | removeAuraEffectViaGM: Missing data", { auraEffect, targetToken });
 			return;
 		}
 
@@ -653,7 +653,7 @@ export function setupCombatSocket() {
 		const auraEffect = auraActor?.effects.get(auraEffectId);
 
 		if (!targetToken || !auraEffect) {
-			console.error("shadowdark-extras | applyAuraConditionsViaGM: Missing data", {
+			console.error("mythicbastionland-extras | applyAuraConditionsViaGM: Missing data", {
 				targetToken: targetToken?.name,
 				auraActor: auraActor?.name,
 				auraEffect: auraEffect?.name,
@@ -670,7 +670,7 @@ export function setupCombatSocket() {
 	if (isFeatureEnabled(FEATURE_IDS.AURAS)) socketlibSocket.register("applyAuraDamageViaGM", async ({ targetTokenId, config, savedSuccessfully }) => {
 		const targetToken = canvas.tokens.get(targetTokenId);
 		if (!targetToken) {
-			console.error("shadowdark-extras | applyAuraDamageViaGM: Target token not found", targetTokenId);
+			console.error("mythicbastionland-extras | applyAuraDamageViaGM: Target token not found", targetTokenId);
 			return;
 		}
 
@@ -683,7 +683,7 @@ export function setupCombatSocket() {
 		const auraEffect = auraActor?.effects.get(auraEffectId);
 
 		if (!auraEffect) {
-			console.error("shadowdark-extras | removeAuraEffectsFromAllViaGM: Aura effect not found", auraEffectId);
+			console.error("mythicbastionland-extras | removeAuraEffectsFromAllViaGM: Aura effect not found", auraEffectId);
 			return;
 		}
 

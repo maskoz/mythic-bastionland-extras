@@ -1,4 +1,4 @@
-// DungeonBiomesSD.mjs
+﻿// DungeonBiomesSD.mjs
 //
 // Biome theming for the procedural dungeon generator: each room is assigned a
 // biome (crypt, library, temple, …) that sets its floor texture and scatters
@@ -6,7 +6,7 @@
 // has imported a Dungeondraft decor pack with a matching category, those props
 // are mixed in too (best-effort, never required).
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const GRID_SIZE = 100;
 
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;

@@ -1,4 +1,4 @@
-// Decor assets and decor-tab state for the hex painter — the leaf that the
+﻿// Decor assets and decor-tab state for the hex painter — the leaf that the
 // rest of the HexPainterSD.mjs split can import without a cycle.
 // Extracted verbatim from scripts/hex/HexPainterSD.mjs (Phase 5.3 sweep 6
 // split).
@@ -14,7 +14,7 @@ import { _formatLabel } from "./hex-tile-labels.mjs";
 // are leaves of the painter, so this edge adds no cycle.
 import { setActiveTileTab } from "./hex-tile-selection.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const DECOR_IMPORT_FOLDER = "decor";
 const DECOR_DDPACK_FOLDER = "decor/ddpacks";
 const DECOR_IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"];

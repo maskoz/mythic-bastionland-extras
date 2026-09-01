@@ -9,8 +9,6 @@
  * Based on Dragonbane's DisplayMonsterCard implementation.
  */
 
-import { getEffectiveCreatureType } from "../npc/CreatureTypesApp.mjs";
-
 /**
  * Parse the brackets content to extract UUID and optional flags
  * @param {String} match - The part between brackets (e.g., "Actor.gwFbDqFlJJrjeM3a named")
@@ -131,7 +129,7 @@ function getLocalizedMove(moveKey) {
  * @returns {String} Creature type or empty string
  */
 function getCreatureType(npc) {
-	return getEffectiveCreatureType(npc);
+	return npc.getFlag("mythicbastionland-extras", "creatureType") ?? "";
 }
 
 /**

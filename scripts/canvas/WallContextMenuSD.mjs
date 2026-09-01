@@ -1,9 +1,9 @@
-/**
+﻿/**
  * Wall Context Menu for Shadowdark Extras
  * Adds a right-click menu to walls for quick state toggling
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 export class WallContextMenuSD {
 	static initialize() {

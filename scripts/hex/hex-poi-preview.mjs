@@ -1,4 +1,4 @@
-// POI preview and placement transform for the hex painter — the leaf that the
+﻿// POI preview and placement transform for the hex painter — the leaf that the
 // rest of the HexPainterSD.mjs split can import without a cycle.
 // Extracted verbatim from scripts/hex/HexPainterSD.mjs (Phase 5.3 sweep 6
 // split).
@@ -24,7 +24,7 @@ import {
 	getRegisteredDecorTiles,
 } from "./hex-decor.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // POI (Symbol) tile state
 export let _poiScale = 0.5;             // Scale factor for POI tiles (0.1 - 2.0)

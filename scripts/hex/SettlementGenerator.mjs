@@ -1,9 +1,9 @@
-import { formatHexCoord } from "./SDXCoordsSD.mjs";
+﻿import { formatHexCoord } from "./SDXCoordsSD.mjs";
 import { resolveTemplate } from "./HexContentGenerator.mjs";
 import { getNearbyContent } from "./ContentRegistry.mjs";
 import { HEX_JOURNAL_NAME } from "./HexTooltipSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 let _data = null;
 let _monsterIndex = null;

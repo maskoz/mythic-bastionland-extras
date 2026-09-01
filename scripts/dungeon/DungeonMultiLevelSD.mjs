@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SDX Multi-Level Dungeon Generator (standalone)
  *
  * Builds a stack of procedurally generated dungeon levels on a single v14 scene
@@ -34,7 +34,7 @@ import { createDungeonOccupancy, generateDungeonDecor } from "./DungeonDecorSD.m
 
 const ROTJS_STYLES = ["maze", "rogue", "digger", "uniform"];
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const GRID_SIZE = 100;
 const BASE_PAD = 300;          // matches single-level generator's fitToContent pad
 const STAIR_REGION_MARGIN = 5; // changeLevel region reaches this far into the upper level above the boundary

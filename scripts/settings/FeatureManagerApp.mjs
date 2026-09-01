@@ -1,4 +1,4 @@
-import { MODULE_ID } from "../shared/module-id.mjs";
+﻿import { MODULE_ID } from "../shared/module-id.mjs";
 import {
 	FEATURE_SETTING_KEY,
 	getDisabledFeatureIds,
@@ -18,7 +18,7 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 export class FeatureManagerApp extends HandlebarsApplicationMixin(ApplicationV2) {
 	static DEFAULT_OPTIONS = {
 		id: "sdx-feature-manager",
-		classes: ["shadowdark-extras", "sdx-feature-manager-app"],
+		classes: ["mythicbastionland-extras", "sdx-feature-manager-app"],
 		tag: "form",
 		window: {
 			title: "Feature Manager",

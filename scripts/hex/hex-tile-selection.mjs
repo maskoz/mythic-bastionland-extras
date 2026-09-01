@@ -1,4 +1,4 @@
-// Tile-selection state and the symbol tile store for the hex painter — the
+﻿// Tile-selection state and the symbol tile store for the hex painter — the
 // leaf that the rest of the HexPainterSD.mjs split can import without a cycle.
 // Extracted verbatim from scripts/hex/HexPainterSD.mjs (Phase 5.3 sweep 6
 // split).
@@ -19,7 +19,7 @@ import { readShippedManifest, writeShippedManifest } from "../shared/shipped-ass
 import { _formatLabel } from "./hex-tile-labels.mjs";
 import { browseAssetsAsGM } from "./hex-asset-browser.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const SYMBOLS_TILE_FOLDER = `modules/${MODULE_ID}/assets/symbols`;
 
 // State

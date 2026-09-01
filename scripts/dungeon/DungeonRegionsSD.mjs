@@ -1,8 +1,8 @@
-/**
+﻿/**
  * SDX Dungeon Regions - Helpers for v14 Regions and Behaviors
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * Place a Region with the v14-native `changeLevel` behavior.
@@ -86,7 +86,7 @@ export async function placeDungeonSurface({ sceneId, levelId, name = "Dungeon Su
 	if (!level) throw new Error(`Level ${levelId} not on scene ${sceneId}`);
 
 	// Collect every dungeon-generated tile that belongs to this level.
-	// generateDungeon flags tiles with flags["shadowdark-extras"].dungeonFloor = true.
+	// generateDungeon flags tiles with flags["mythicbastionland-extras"].dungeonFloor = true.
 	const tiles = [...scene.tiles].filter(t =>
 		t.flags?.[MODULE_ID]?.dungeonFloor === true
         && (t.levels?.includes?.(levelId) || t.levels?.has?.(levelId))

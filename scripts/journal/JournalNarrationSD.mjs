@@ -1,6 +1,6 @@
+﻿
 
-
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 /**
  * Register the journal narration setting

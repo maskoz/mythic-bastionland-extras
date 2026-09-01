@@ -1,4 +1,4 @@
-// v13+ FilePicker namespaced under foundry.applications.apps.
+﻿// v13+ FilePicker namespaced under foundry.applications.apps.
 const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globalThis.FilePicker;
 
 /**
@@ -6,7 +6,7 @@ const FilePicker = foundry.applications.apps.FilePicker?.implementation ?? globa
  * Displays icons from assets/icons folder with search and category filter
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 const ICONS_PATH = `modules/${MODULE_ID}/assets/icons`;
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;

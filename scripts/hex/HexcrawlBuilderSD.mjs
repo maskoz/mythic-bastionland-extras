@@ -1,5 +1,5 @@
-/**
- * Hexcrawl Builder (generic) — shadowdark-extras
+﻿/**
+ * Hexcrawl Builder (generic) — mythicbastionland-extras
  * ════════════════════════════════════════════════════════════════════════════
  * Build a finished hex-crawl Scene from a plain data object, wired into SDX's
  * existing hex system (HEXODDQ grid, painted biome tiles, per-hex records read
@@ -43,7 +43,7 @@
 
 import { saveHexRecord, setHexTerrainBatch } from "./HexTooltipSD.mjs";
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // Hex grid cell geometry — grid.size = HEX_TILE_H so cells are 295.6 × 256.
 const HEX_TILE_H = 256;

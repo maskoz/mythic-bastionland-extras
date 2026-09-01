@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Cleansing Weapon Spell Macro
  *
  * This module contains the Cleansing Weapon spell implementation for Shadowdark Extras.
  * The Cleansing Weapon spell wreaths a weapon in purifying flames, dealing fire damage.
  */
 
-const MODULE_ID = "shadowdark-extras";
+const MODULE_ID = "mythicbastionland-extras";
 
 // Import helper functions from identify.mjs
 import { isUnidentified, getUnidentifiedName } from "./identify.mjs";

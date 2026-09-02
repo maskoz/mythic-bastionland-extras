@@ -1,13 +1,13 @@
 {
   "id": "mythicbastionland-extras",
   "title": "Mythic Bastionland Extras",
-  "version": "6.13.0",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
   },
-  "url": "https://github.com/maskoz/shadowdark-extras",
-  "description": "<p>Map-making tools for Mythic Bastionland: hex map painter, dungeon generator, tile selection, journal pins, drawing tools, and scene import/export. Forked from Shadowdark Extras by DmKal.</p>",
+  "url": "https://github.com/maskoz/mythic-bastionland-extras",
+  "description": "<p>Tools for Mythic Bastionland: procedural realm and hex map generator, dungeon generator, Theatre of the Mind scenes, hex painter, journal pins, drawing tools, and scene import/export. Forked from Shadowdark Extras by DmKal.</p>",
   "authors": [
     {
       "name": "DmKal",
@@ -36,23 +36,6 @@
         "id": "lib-wrapper",
         "type": "module",
         "compatibility": {}
-      },
-      {
-        "id": "sequencer",
-        "type": "module",
-        "compatibility": {}
-      },
-      {
-        "id": "portal-lib",
-        "type": "module",
-        "compatibility": {}
-      },
-      {
-        "id": "tokenmagic",
-        "type": "module",
-        "compatibility": {
-          "minimum": "0.7.5.1"
-        }
       }
     ]
   },
@@ -111,9 +94,6 @@
       "src": "styles/sdx-drawing.css"
     },
     {
-      "src": "styles/sdx-roller.css"
-    },
-    {
       "src": "styles/poi-tile-sort.css"
     },
     {
@@ -131,7 +111,7 @@
       "flags": {}
     }
   ],
-  "manifest": "https://github.com/maskoz/shadowdark-extras/releases/latest/download/module.json",
-  "download": "https://github.com/maskoz/shadowdark-extras/releases/latest/download/module.zip",
+  "manifest": "https://github.com/maskoz/mythic-bastionland-extras/releases/latest/download/module.json",
+  "download": "https://github.com/maskoz/mythic-bastionland-extras/releases/latest/download/module.zip",
   "flags": {}
 }

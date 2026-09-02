@@ -45,8 +45,6 @@ import { initPlaceableNotes } from "./journal/PlaceableNotesSD.mjs";
 import { registerDisplayNpcEnricher } from "./journal/DisplayNpc.mjs";
 import { registerDisplayTableEnricher } from "./journal/DisplayTable.mjs";
 import { registerDisplayItemEnricher } from "./journal/DisplayItem.mjs";
-import { initEasyReferenceMenu } from "./journal/easy-reference/EasyReferenceMenu.mjs";
-
 // ── Scene export / import ─────────────────────────────────────────────────────
 import { SceneExporter } from "./scene/SceneExporter.mjs";
 import { SceneImporter } from "./scene/SceneImporter.mjs";
@@ -67,7 +65,6 @@ import { FEATURE_IDS, isFeatureEnabled } from "./settings/feature-gates.mjs";
 
 // ── Shared ────────────────────────────────────────────────────────────────────
 import { registerAppV2HeaderBridge } from "./shared/appv2-header-bridge.mjs";
-import { migrateWebpAssetPaths, sweepWorldCompendiums } from "./shared/WebpMigrationSD.mjs";
 
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -146,8 +143,6 @@ Hooks.once("init", () => {
 		registerDisplayTableEnricher();
 		registerDisplayItemEnricher();
 	}
-	if (featureEnabled(FEATURE_IDS.EASY_REFERENCE)) initEasyReferenceMenu();
-
 	// Journal sidebar chrome
 	if (anyFeatureEnabled(FEATURE_IDS.JOURNAL_PINS, FEATURE_IDS.HEX_TOOLTIP, FEATURE_IDS.JOURNAL_NARRATION)) {
 		registerJournalUIHooks();
@@ -158,17 +153,6 @@ Hooks.once("init", () => {
 Hooks.once("ready", async () => {
 	// Initialize the SDX tray (hex painter, dungeon painter, pin list, etc.)
 	initTray();
-
-	// Migrate any old .png/.jpg asset paths to .webp (safe to run always)
-	try {
-		await migrateWebpAssetPaths();
-	}
-	catch (e) {
-		console.error(`${MODULE_ID} | webp asset migration threw:`, e);
-	}
-	sweepWorldCompendiums().catch(e =>
-		console.error(`${MODULE_ID} | world compendium webp sweep failed:`, e)
-	);
 
 	// Expose public API for external scripts / MCP automation
 	game.modules.get(MODULE_ID).api = {

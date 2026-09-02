@@ -40,6 +40,13 @@ export class MaphubLauncherApp extends HandlebarsApplicationMixin(ApplicationV2)
 
 		const html = this.element;
 
+		html.querySelector("[data-action='open-mb-realm']")?.addEventListener("click", async e => {
+			e.preventDefault();
+			const { MBRealmGeneratorApp } = await import("./hex/MBRealmGeneratorApp.mjs");
+			new MBRealmGeneratorApp().render(true);
+			this.close();
+		});
+
 		html.querySelector("[data-action='open-realm']")?.addEventListener("click", async e => {
 			e.preventDefault();
 			this._openGenerator("realm");

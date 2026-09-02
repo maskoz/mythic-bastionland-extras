@@ -86,8 +86,10 @@ class SDXCoord {
 		this._cellWidth = canvas.grid.sizeX;
 		this._cellHeight = canvas.grid.sizeY;
 
-		// Grid offset for the top-left corner of the scene
-		const topLeft = canvas.grid.getOffset({ x: rect.left, y: rect.top });
+		// Grid offset for the top-left corner of the scene. Sample 1px inside the
+		// boundary so getOffset lands inside cell (0,0) rather than on its edge,
+		// which can round up to i=-1 in HEXODDQ and produce labels starting at 2.
+		const topLeft = canvas.grid.getOffset({ x: rect.left + 1, y: rect.top + 1 });
 		this._row0 = topLeft.i;
 		this._col0 = topLeft.j;
 
@@ -583,7 +585,7 @@ export function formatHexCoord(offset) {
 	if (!canvas?.grid) return `${offset.i}.${offset.j}`;
 	const settings = getSettings();
 	const rect = canvas.dimensions.sceneRect;
-	const topLeft = canvas.grid.getOffset({ x: rect.left, y: rect.top });
+	const topLeft = canvas.grid.getOffset({ x: rect.left + 1, y: rect.top + 1 });
 	const relRow = offset.i - topLeft.i;
 	const relCol = offset.j - topLeft.j;
 

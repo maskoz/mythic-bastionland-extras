@@ -182,9 +182,11 @@ async function createHexScene(dataset, geom, { sceneName, overwrite }) {
 		width: pxW,
 		height: pxH,
 		padding: 0,
+		shiftX: 1,
+		shiftY: 0,
 		backgroundColor: "#3C3836",
 		grid: {
-			type: CONST.GRID_TYPES.HEXODDQ,
+			type: dataset.grid?.type ?? CONST.GRID_TYPES.HEXODDQ,
 			size: HEX_TILE_H,
 			distance: dataset.grid?.distance ?? 6,
 			units: dataset.grid?.units ?? "mi",
@@ -223,15 +225,22 @@ async function paintTerrain(scene, dataset, geom) {
 	const regionMap = buildRegionMap(dataset);
 	const tw = dataset.terrainTile?.w ?? TERRAIN_TILE_W;
 	const th = dataset.terrainTile?.h ?? TERRAIN_TILE_H;
+	// Extra rings of tiles painted outside the grid to cover the HEXODDQ half-hex
+	// gaps at the top/bottom edges where alternating columns are offset by H/2.
+	const border = dataset.border ?? 0;
 
 	const tileData = [];
-	const terrainMap = {}; // hexKey -> terrain label
+	const terrainMap = {};
 
-	for (let row = 0; row < geom.pubRows; row++) {
-		for (let col = 1; col <= geom.pubCols; col++) {
-			const num = row * 100 + col;
+	for (let row = -border; row < geom.pubRows + border; row++) {
+		for (let col = 1 - border; col <= geom.pubCols + border; col++) {
+			// Clamp to nearest in-bounds cell for biome lookup; border tiles mirror their neighbor.
+			const cRow = Math.max(0, Math.min(geom.pubRows - 1, row));
+			const cCol = Math.max(1, Math.min(geom.pubCols, col));
+			const num = cRow * 100 + cCol;
 			const biomeKey = regionMap.get(num) ?? defaultBiome;
-			const biome = BIOME_TILES[biomeKey] ?? BIOME_TILES.forest;
+			const biomeLookup = dataset.biomeTiles ? { ...BIOME_TILES, ...dataset.biomeTiles } : BIOME_TILES;
+			const biome = biomeLookup[biomeKey] ?? biomeLookup.forest ?? BIOME_TILES.forest;
 			const off = geom.offsetOf(col, row);
 			const center = canvas.grid.getCenterPoint(off);
 			const src = biome.paths[variety(off.i, off.j, biome.paths.length)];
@@ -245,7 +254,9 @@ async function paintTerrain(scene, dataset, geom) {
 				sort: Math.floor(center.y),
 				flags: { [MODULE_ID]: { painted: true, biome: biome.isWater ? "water" : undefined } },
 			});
-			terrainMap[offsetToHexKey(off)] = biome.terrain;
+			if (row >= 0 && row < geom.pubRows && col >= 1 && col <= geom.pubCols) {
+				terrainMap[offsetToHexKey(off)] = biome.terrain;
+			}
 		}
 	}
 

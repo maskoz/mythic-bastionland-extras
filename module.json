@@ -103,6 +103,36 @@
       "src": "styles/maphub-launcher.css"
     }
   ],
+  "packs": [
+    {
+      "name": "mb-rules",
+      "label": "MB Rules Glossary",
+      "path": "packs/mb-rules.db",
+      "type": "JournalEntry",
+      "system": "mythicbastionland"
+    },
+    {
+      "name": "mb-sparks",
+      "label": "MB Spark Tables",
+      "path": "packs/mb-sparks.db",
+      "type": "JournalEntry",
+      "system": "mythicbastionland"
+    },
+    {
+      "name": "mb-spark-tables",
+      "label": "MB Spark Roll Tables",
+      "path": "packs/mb-spark-tables.db",
+      "type": "RollTable",
+      "system": "mythicbastionland"
+    },
+    {
+      "name": "mb-cast",
+      "label": "The Cast",
+      "path": "packs/mb-cast.db",
+      "type": "Actor",
+      "system": "mythicbastionland"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
